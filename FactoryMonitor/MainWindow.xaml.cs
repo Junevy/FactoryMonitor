@@ -15,5 +15,24 @@ namespace FactoryMonitor.Client
             this.DataContext = vm;
             this.MainContentControl = App.Current.Provider.GetRequiredService<Frame>()!;
         }
+
+        private void Window_StateChanged(object sender, EventArgs e)
+        {
+            if (WindowState == WindowState.Maximized)
+            {
+                var workArea = SystemParameters.WorkArea;
+
+                MaxWidth = workArea.Width;
+                MaxHeight = workArea.Height;
+
+                Left = workArea.Left;
+                Top = workArea.Top;
+            }
+            else
+            {
+                MaxWidth = double.PositiveInfinity;
+                MaxHeight = double.PositiveInfinity;
+            }
+        }
     }
 }

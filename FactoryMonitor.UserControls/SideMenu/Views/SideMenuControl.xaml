@@ -1,0 +1,132 @@
+﻿<UserControl
+    x:Class="FactoryMonitor.UserControls.SideMenu.Views.SideMenuControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:FactoryMonitor.UserControls.SideMenu.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:vm="clr-namespace:FactoryMonitor.UserControls.SideMenu.ViewModels"
+    d:DataContext="{d:DesignInstance Type=vm:SideMenuViewModel}"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+
+    <ListBox
+        Background="Transparent"
+        BorderThickness="0"
+        ItemsSource="{Binding MenuItems}"
+        ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+        SelectedItem="{Binding SelectedMenuItem}">
+
+        <!--  Item 样式  -->
+        <ListBox.ItemContainerStyle>
+            <Style TargetType="ListBoxItem">
+                <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                <Setter Property="Margin" Value="0,0,0,5" />
+
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="ListBoxItem">
+                            <Grid Background="{Binding ContainerBackground}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="{Binding IndicatorWidth}" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Border
+                                    x:Name="Bd"
+                                    Grid.Column="0"
+                                    Width="4"
+                                    Height="{Binding IndicatorHeight}"
+                                    Margin="0,0,2,0"
+                                    Background="Transparent"
+                                    CornerRadius="0,5,5,0">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                                <Border
+                                    x:Name="Bd_1"
+                                    Grid.Column="1"
+                                    Padding="6"
+                                    Background="Transparent"
+                                    CornerRadius="5">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                </Border>
+                            </Grid>
+
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <!--<Setter TargetName="Bd" Property="Background" Value="{Binding IsMouseOverBackground}" />-->
+                                    <Setter TargetName="Bd_1" Property="Background" Value="{Binding IsMouseOverBackground}" />
+                                </Trigger>
+
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter TargetName="Bd" Property="Background" Value="{Binding IsSelectedIdicatorBackground}" />
+                                    <Setter TargetName="Bd_1" Property="Background" Value="{Binding IsSelectedBackground}" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ListBox.ItemContainerStyle>
+
+        <!--  Item 内容  -->
+        <ListBox.ItemTemplate>
+            <DataTemplate>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Border
+                        x:Name="Indicator"
+                        Grid.Column="0"
+                        Width="2"
+                        Height="25"
+                        VerticalAlignment="Stretch"
+                        CornerRadius="5"
+                        Visibility="Hidden" />
+
+                    <ContentPresenter
+                        x:Name="icon"
+                        Grid.Column="1"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch">
+
+                        <ContentPresenter.ContentTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition />
+                                    </Grid.RowDefinitions>
+
+                                    <TextBlock
+                                        Grid.Row="0"
+                                        Margin="0,5,5,5"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Bottom"
+                                        FontFamily="pack://application:,,,/FactoryMonitor.UserControls;component/Resources/Font/#iconfont"
+                                        FontSize="{Binding FontSize}"
+                                        Foreground="{Binding Foreground}"
+                                        Text="&#xe691;" />
+                                    <TextBlock
+                                        Grid.Row="1"
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Stretch"
+                                        FontFamily="Arial"
+                                        FontSize="10"
+                                        Foreground="{Binding Foreground}"
+                                        Text="{Binding Title}"
+                                        Visibility="{Binding Visiable}" />
+                                </Grid>
+                            </DataTemplate>
+                        </ContentPresenter.ContentTemplate>
+                    </ContentPresenter>
+                </Grid>
+            </DataTemplate>
+        </ListBox.ItemTemplate>
+    </ListBox>
+</UserControl>

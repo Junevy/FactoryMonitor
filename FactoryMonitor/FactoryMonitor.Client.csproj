@@ -7,6 +7,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
 	  <LangVersion>13</LangVersion>
     <UseWPF>true</UseWPF>
+    <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,7 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FactoryMonitor.Resources\FactoryMonitor.Resources.csproj" />
+    <ProjectReference Include="..\FactoryMonitor.Common\FactoryMonitor.Common.csproj" />
+    <ProjectReference Include="..\FactoryMonitor.UserControls\FactoryMonitor.UserControls.csproj" />
   </ItemGroup>
 
 </Project>
