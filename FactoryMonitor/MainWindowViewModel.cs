@@ -1,23 +1,22 @@
-﻿using FactoryMonitor.Client.Views;
-using FactoryMonitor.UserControls.SideMenu.ViewModels;
+﻿using FactoryMonitor.UserControls.Controls;
+using System.Collections.ObjectModel;
 
 namespace FactoryMonitor.Client
 {
     public class MainWindowViewModel
     {
-        //private object Current => sideMenu.SelectedMenuItem;
+        public ObservableCollection<SideMenuItem> Items { get; set; } = [];
 
-        private readonly SideMenuViewModel sideMenu;
-        public MainWindowViewModel(SideMenuViewModel sideMenu)
+        public MainWindowViewModel()
         {
-            this.sideMenu = sideMenu;
 
-            InitialSideMenu();
+            Items.Add(new SideMenuItem() { Content = "Dashboard123123123123123123", Icon = "Icons", NavigationKey = "DashboardPage" });
+            Items.Add(new SideMenuItem() { Content = "Dashboard", Icon = "Icons", NavigationKey = "DashboardPage" });
+            Items.Add(new SideMenuItem() { Content = "Dashboard", Icon = "Icons", NavigationKey = "DashboardPage" });
+            Items.Add(new SideMenuItem() { Content = "Dashboard", Icon = "Icons", NavigationKey = "DashboardPage" });
+            Items.Add(new SideMenuItem() { Content = "Dashboard", Icon = "Icons", NavigationKey = "DashboardPage" });
+            Items.Add(new SideMenuItem() { Content = "Dashboard", Icon = "Icons", NavigationKey = "DashboardPage" });
         }
 
-        private void InitialSideMenu()
-        {
-            sideMenu.AddMenuItem(new() { Title = "HOME", Icon = "\uE691", PageType = typeof(HomeView)});
-        }
     }
 }

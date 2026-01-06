@@ -15,7 +15,7 @@ namespace FactoryMonitor.Client
             InitializeComponent();
             this.DataContext = vm;
             this.MainContentControl = App.Current.Provider.GetRequiredService<Frame>()!;
-            this.SideMenuControl.DataContext = svm;
+            //this.SideMenuControl.DataContext = svm;
         }
 
         private void Window_StateChanged(object sender, EventArgs e)

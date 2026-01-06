@@ -9,11 +9,7 @@
                 <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Resources/XAML/CommonColors.xaml" />
                 <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Resources/XAML/ControlBarStyle.xaml" />
 
-                <ResourceDictionary>
-                    <FontFamily x:Key="IconFont">
-                        FontFamily="pack://application:,,,/FactoryMonitor.UserControls;component/Resources/Font/#iconfont"
-                    </FontFamily>
-                </ResourceDictionary>
+                <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Templates/SideMenuStyle.xaml" />
 
             </ResourceDictionary.MergedDictionaries>
 
