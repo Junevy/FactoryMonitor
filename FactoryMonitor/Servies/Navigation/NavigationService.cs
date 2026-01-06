@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System.Windows.Controls;
 
 namespace FactoryMonitor.Client.Servies.Navigation
 {
@@ -10,11 +11,11 @@ namespace FactoryMonitor.Client.Servies.Navigation
         /// Navigate to the specified Page.
         /// </summary>
         /// <typeparam name="T"> 需要导航的Page Type </typeparam>
-        public void NavigateTo<T>() where T : Page
+        public void NavigateTo<TPage>() where TPage : Page
         {
-            //var page = App.Current.GetSingleton<Page>();
-            //if (page != null)
-            //    mainFrame.Navigate(page);
+            var page = App.Current.Provider.GetRequiredService<TPage>();
+            if (page != null)
+                mainFrame.Navigate(page);
         }
     }
 }

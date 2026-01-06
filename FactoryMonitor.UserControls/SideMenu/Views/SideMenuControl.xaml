@@ -23,7 +23,7 @@
             <Style TargetType="ListBoxItem">
                 <Setter Property="FocusVisualStyle" Value="{x:Null}" />
                 <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-                <Setter Property="Margin" Value="0,0,0,5" />
+                <Setter Property="Margin" Value="0,5,0,0" />
 
                 <Setter Property="Template">
                     <Setter.Value>
@@ -111,7 +111,7 @@
                                         FontFamily="pack://application:,,,/FactoryMonitor.UserControls;component/Resources/Font/#iconfont"
                                         FontSize="{Binding FontSize}"
                                         Foreground="{Binding Foreground}"
-                                        Text="&#xe691;" />
+                                        Text="{Binding Icon}" />
                                     <TextBlock
                                         Grid.Row="1"
                                         HorizontalAlignment="Stretch"

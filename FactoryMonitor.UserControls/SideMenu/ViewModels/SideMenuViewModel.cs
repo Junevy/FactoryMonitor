@@ -5,7 +5,7 @@ namespace FactoryMonitor.UserControls.SideMenu.ViewModels
 {
     public class SideMenuViewModel
     {
-        public ObservableCollection<SideMenuModel> MenuItems { get; }
+        public ObservableCollection<SideMenuModel> MenuItems { get; } = [];
 
         private SideMenuModel? selectedMenuItem;
         public SideMenuModel? SelectedMenuItem
@@ -13,21 +13,20 @@ namespace FactoryMonitor.UserControls.SideMenu.ViewModels
             get => selectedMenuItem;
             set
             {
-                selectedMenuItem = value;
+                if (value != null)
+                    selectedMenuItem = value;
                 // 后面可以在这里处理导航
             }
         }
 
         public SideMenuViewModel()
         {
-            MenuItems =
-            [
-                new() { Title = "HOME" },
-                new() { Title = "HOME" },
-                new() { Title = "HOME" },
-                new() { Title = "HOME" },
-                new() { Title = "HOME" },
-            ];
+            
+        }
+
+        public void AddMenuItem(SideMenuModel menuItem)
+        {
+            MenuItems.Add(menuItem);
         }
     }
 }

@@ -7,6 +7,9 @@ namespace FactoryMonitor.UserControls.SideMenu.Models
     {
         public string Icon { get; set; } = string.Empty;   // \uE691
         public string Title { get; set; } = string.Empty;  // HOME
+
+        public Type? PageType { get; set; }
+
         public Visibility Visiable { get; set; } = Visibility.Collapsed;
         public int FontSize { get; set; } = 20;
 

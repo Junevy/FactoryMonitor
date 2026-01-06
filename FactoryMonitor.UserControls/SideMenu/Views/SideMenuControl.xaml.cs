@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using FactoryMonitor.UserControls.SideMenu.ViewModels;
+using System.Windows.Controls;
 
 namespace FactoryMonitor.UserControls.SideMenu.Views
 {
@@ -10,7 +11,7 @@ namespace FactoryMonitor.UserControls.SideMenu.Views
         public SideMenuControl()
         {
             InitializeComponent();
-            DataContext = new ViewModels.SideMenuViewModel();
+            //DataContext = vm;
         }
     }
 }

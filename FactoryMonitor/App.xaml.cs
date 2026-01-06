@@ -1,4 +1,6 @@
 ﻿using FactoryMonitor.Client.Servies.Navigation;
+using FactoryMonitor.UserControls.SideMenu.ViewModels;
+using FactoryMonitor.UserControls.SideMenu.Views;
 using Microsoft.Extensions.DependencyInjection;
 using System.Windows;
 using System.Windows.Controls;
@@ -18,6 +20,7 @@ namespace FactoryMonitor.Client
             base.OnStartup(e);
 
             InitializeContainer();
+            
             MainWindow = Current.Provider.GetRequiredService<MainWindow>();
             MainWindow.Show();
         }
@@ -30,6 +33,8 @@ namespace FactoryMonitor.Client
             container.AddSingleton<INavigation, Servies.Navigation.NavigationService>();
             container.AddSingleton<MainWindow>();
             container.AddSingleton<MainWindowViewModel>();
+            container.AddSingleton<SideMenuViewModel>();
+            //container.AddSingleton<SideMenuControl>();
 
             Provider = container.BuildServiceProvider();
         }
