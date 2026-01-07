@@ -3,9 +3,9 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Resources/AppColors.xaml"/>
-        <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Resources/XAML/ControlBarStyle.xaml"/>
+        <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Controls/ControlBarStyle.xaml"/>
         <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Controls/SideMenu.xaml"/>
-        <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Resources/XAML/PublicResources.xaml"/>
+        <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Animation/Button.xaml"/>
     </ResourceDictionary.MergedDictionaries>
     
 </ResourceDictionary>

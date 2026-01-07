@@ -213,6 +213,16 @@ namespace FactoryMonitor.UserControls.Controls
         public static readonly DependencyProperty ContentFontFamilyProperty =
             DependencyProperty.Register("ContentFontFamily", typeof(FontFamily), typeof(SideMenu), new PropertyMetadata(new FontFamily("Consolas")));
 
+        public Thickness ContentMargin
+        {
+            get { return (Thickness)GetValue(ContentMarginProperty); }
+            set { SetValue(ContentMarginProperty, value); }
+        }
+        public static readonly DependencyProperty ContentMarginProperty =
+            DependencyProperty.Register("ContentMargin", typeof(Thickness), typeof(SideMenu), new PropertyMetadata(new Thickness(0)));
+
+
+
         #endregion
 
 
@@ -261,6 +271,17 @@ namespace FactoryMonitor.UserControls.Controls
         }
         public static readonly DependencyProperty IconForegroundProperty =
             DependencyProperty.Register("IconForeground", typeof(SolidColorBrush), typeof(SideMenu), new PropertyMetadata(Brushes.Black));
+
+
+
+        public Thickness IconMargin
+        {
+            get { return (Thickness)GetValue(IconMarginProperty); }
+            set { SetValue(IconMarginProperty, value); }
+        }
+        public static readonly DependencyProperty IconMarginProperty =
+            DependencyProperty.Register("IconMargin", typeof(Thickness), typeof(SideMenu), new PropertyMetadata(new Thickness(0)));
+
 
 
         #endregion

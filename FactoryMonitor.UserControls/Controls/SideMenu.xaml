@@ -7,7 +7,7 @@
 
     <Style TargetType="{x:Type local:SideMenu}">
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
-        
+
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:SideMenu}">
@@ -22,11 +22,11 @@
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
                                 <Button
-                                    Command="{Binding RelativeSource={RelativeSource AncestorType=local:SideMenu}, Path=NavigateCommand,Mode=TwoWay}"
-                                    CommandParameter="{Binding}"
                                     Width="{Binding RelativeSource={RelativeSource AncestorType=local:SideMenu}, Path=MenuItemWidth}"
                                     Height="{Binding RelativeSource={RelativeSource AncestorType=local:SideMenu}, Path=MenuItemHeight}"
-                                    Margin="{Binding RelativeSource={RelativeSource AncestorType=local:SideMenu}, Path=MenuItemMargin}">
+                                    Margin="{Binding RelativeSource={RelativeSource AncestorType=local:SideMenu}, Path=MenuItemMargin}"
+                                    Command="{Binding RelativeSource={RelativeSource AncestorType=local:SideMenu}, Path=NavigateCommand, Mode=TwoWay}"
+                                    CommandParameter="{Binding}">
                                     <Button.Template>
                                         <ControlTemplate TargetType="Button">
                                             <Border
@@ -35,7 +35,11 @@
                                                 VerticalAlignment="Stretch"
                                                 Background="{Binding RelativeSource={RelativeSource AncestorType=local:SideMenu}, Path=MenuItemBackground}"
                                                 CornerRadius="{Binding RelativeSource={RelativeSource AncestorType=local:SideMenu}, Path=MenuItemCornerRadius}">
-                                                <Grid>
+                                                <Grid RenderTransformOrigin="0.5,0.5">
+                                                    <Grid.RenderTransform>
+                                                        <ScaleTransform x:Name="ButtonScale" ScaleX="1" ScaleY="1" />
+                                                    </Grid.RenderTransform>
+
                                                     <Grid.ColumnDefinitions>
                                                         <ColumnDefinition MaxWidth="3" />
                                                         <ColumnDefinition Width="*" />
@@ -51,7 +55,10 @@
                                                         CornerRadius="{Binding RelativeSource={RelativeSource AncestorType=local:SideMenu}, Path=IndicatorCornerRadius}"
                                                         Visibility="{Binding IsSelected, Converter={StaticResource BooleanToVisibilityConverter}}" />
 
-                                                    <ContentPresenter Grid.Column="1" Content="{Binding}" VerticalAlignment="Center" >
+                                                    <ContentPresenter
+                                                        Grid.Column="1"
+                                                        VerticalAlignment="Center"
+                                                        Content="{Binding}">
                                                         <ContentPresenter.ContentTemplate>
                                                             <DataTemplate>
                                                                 <Grid>
@@ -60,8 +67,9 @@
                                                                         VerticalAlignment="Stretch"
                                                                         Orientation="{Binding RelativeSource={RelativeSource AncestorType=local:SideMenu}, Path=Orientation}">
                                                                         <TextBlock
-                                                                            VerticalAlignment="Center"
                                                                             HorizontalAlignment="Center"
+                                                                            VerticalAlignment="Center"
+                                                                            Margin="{Binding RelativeSource={RelativeSource AncestorType=local:SideMenu}, Path=IconMargin}"
                                                                             FontFamily="{Binding RelativeSource={RelativeSource AncestorType=local:SideMenu}, Path=IconFontFamily}"
                                                                             FontSize="{Binding RelativeSource={RelativeSource AncestorType=local:SideMenu}, Path=IconSize}"
                                                                             Foreground="{Binding RelativeSource={RelativeSource AncestorType=local:SideMenu}, Path=IconForeground}"
@@ -69,26 +77,63 @@
                                                                             Visibility="{Binding RelativeSource={RelativeSource AncestorType=local:SideMenu}, Path=IconVisibility}" />
 
                                                                         <TextBlock
-                                                                            VerticalAlignment="Center"
                                                                             HorizontalAlignment="Center"
+                                                                            VerticalAlignment="Center"
+                                                                            Margin="{Binding RelativeSource={RelativeSource AncestorType=local:SideMenu}, Path=ContentMargin}"
                                                                             FontFamily="{Binding RelativeSource={RelativeSource AncestorType=local:SideMenu}, Path=ContentFontFamily}"
                                                                             FontSize="{Binding RelativeSource={RelativeSource AncestorType=local:SideMenu}, Path=ContentSize}"
                                                                             Foreground="{Binding RelativeSource={RelativeSource AncestorType=local:SideMenu}, Path=Foreground}"
                                                                             Text="{Binding Content}"
                                                                             Visibility="{Binding RelativeSource={RelativeSource AncestorType=local:SideMenu}, Path=ContentVisibility}" />
                                                                     </StackPanel>
-
-
                                                                 </Grid>
                                                             </DataTemplate>
                                                         </ContentPresenter.ContentTemplate>
                                                     </ContentPresenter>
                                                 </Grid>
                                             </Border>
+
                                             <ControlTemplate.Triggers>
+                                                <!--  点击缩放动画  -->
+                                                <Trigger Property="IsPressed" Value="True">
+                                                    <Trigger.EnterActions>
+                                                        <BeginStoryboard>
+                                                            <Storyboard>
+                                                                <DoubleAnimation
+                                                                    Storyboard.TargetName="ButtonScale"
+                                                                    Storyboard.TargetProperty="ScaleX"
+                                                                    To="0.5"
+                                                                    Duration="0:0:0.2" />
+                                                                <DoubleAnimation
+                                                                    Storyboard.TargetName="ButtonScale"
+                                                                    Storyboard.TargetProperty="ScaleY"
+                                                                    To="0.5"
+                                                                    Duration="0:0:0.2" />
+                                                            </Storyboard>
+                                                        </BeginStoryboard>
+                                                    </Trigger.EnterActions>
+                                                    <Trigger.ExitActions>
+                                                        <BeginStoryboard>
+                                                            <Storyboard>
+                                                                <DoubleAnimation
+                                                                    Storyboard.TargetName="ButtonScale"
+                                                                    Storyboard.TargetProperty="ScaleX"
+                                                                    To="1"
+                                                                    Duration="0:0:0.2" />
+                                                                <DoubleAnimation
+                                                                    Storyboard.TargetName="ButtonScale"
+                                                                    Storyboard.TargetProperty="ScaleY"
+                                                                    To="1"
+                                                                    Duration="0:0:0.2" />
+                                                            </Storyboard>
+                                                        </BeginStoryboard>
+                                                    </Trigger.ExitActions>
+                                                </Trigger>
+
+                                                <!--  选中高亮  -->
                                                 <DataTrigger Binding="{Binding IsSelected}" Value="True">
                                                     <Setter TargetName="Indicator" Property="Opacity" Value="1" />
-                                                    <Setter TargetName="ContainerBorder" Property="Background" Value="{StaticResource PressedBackground}" />
+                                                    <Setter TargetName="ContainerBorder" Property="Background" Value="{DynamicResource PressedBackground}" />
                                                 </DataTrigger>
                                             </ControlTemplate.Triggers>
                                         </ControlTemplate>

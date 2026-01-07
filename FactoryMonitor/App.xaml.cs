@@ -1,4 +1,5 @@
 ﻿using FactoryMonitor.Client.Servies.Navigation;
+using FactoryMonitor.Client.ViewModels;
 using FactoryMonitor.Client.Views;
 using Microsoft.Extensions.DependencyInjection;
 using System.Windows;
@@ -33,6 +34,7 @@ namespace FactoryMonitor.Client
             container.AddSingleton<MainWindow>();
             container.AddSingleton<MainWindowViewModel>();
             container.AddSingleton<HomeView>();
+            container.AddSingleton<HomeViewModel>();
             //container.AddSingleton<SideMenuControl>();
 
             Provider = container.BuildServiceProvider();

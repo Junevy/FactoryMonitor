@@ -3,13 +3,13 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:fc="clr-namespace:FactoryMonitor.UserControls.Controls;assembly=FactoryMonitor.UserControls"
     xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:local="clr-namespace:FactoryMonitor.Client"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="MainWindow"
     Width="1200"
     Height="700"
+    xmlns:fm="clr-namespace:FactoryMonitor.UserControls.Controls;assembly=FactoryMonitor.UserControls"
     d:DataContext="{d:DesignInstance Type=local:MainWindowViewModel}"
     FontFamily="Arial"
     WindowStartupLocation="CenterScreen"
@@ -63,17 +63,17 @@
                     Orientation="Horizontal">
                     <Button
                         Content="&#xe60e;"
-                        Style="{StaticResource sts_bt_sstyle}"
+                        Style="{StaticResource TitleBar}"
                         WindowChrome.IsHitTestVisibleInChrome="True" />
                     <Button
                         Content="&#xe691;"
-                        Style="{StaticResource sts_bt_sstyle}"
+                        Style="{StaticResource TitleBar}"
                         WindowChrome.IsHitTestVisibleInChrome="True" />
                     <Button
                         Background="{StaticResource WarnBackground}"
                         Content="&#xe639;"
                         Foreground="{StaticResource WarnForeground}"
-                        Style="{StaticResource sts_bt_sstyle}"
+                        Style="{StaticResource TitleBar}"
                         WindowChrome.IsHitTestVisibleInChrome="True" />
                 </StackPanel>
             </Grid>
@@ -89,12 +89,12 @@
             <!--  Sidebar content goes here  -->
             <Grid Grid.Column="0">
                 <Border BorderBrush="{StaticResource BorderForeground}" BorderThickness="0,0,1,0">
-                    <fc:SideMenu
+                    <fm:SideMenu
                         NavigateCommand="{Binding NavigateCommand}"
-                        IndicatorCornerRadius="0,3,3,0"
-                        IndicatorHeight="40"
+                        IndicatorCornerRadius="5,0,0,5"
+                        IndicatorHeight="50"
                         Items="{Binding Items}">
-                    </fc:SideMenu>
+                    </fm:SideMenu>
                 </Border>
             </Grid>
 
@@ -108,7 +108,7 @@
         <!--  foot bar  -->
         <Grid Grid.Row="2">
             <Border
-                Background="{StaticResource SubBackground}"
+                Background="{StaticResource SelectedForeground}"
                 BorderBrush="{StaticResource BorderForeground}"
                 BorderThickness="0,1,0,0" >
             </Border>

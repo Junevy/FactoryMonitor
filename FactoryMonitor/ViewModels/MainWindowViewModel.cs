@@ -17,12 +17,9 @@ namespace FactoryMonitor.Client
 
         public MainWindowViewModel(INavigation navigator)
         {
-            Items.Add(new SideMenuItem() { Content = "Dashboard123123123123123123", Icon = "Icons", NavigationKey = "DashboardPage" });
-            Items.Add(new SideMenuItem() { Content = "Dashboard", Icon = "\uE691", NavigationKey = "DashboardPage" });
-            Items.Add(new SideMenuItem() { Content = "Dashboard", Icon = "Icons", NavigationKey = "DashboardPage" });
-            Items.Add(new SideMenuItem() { Content = "Dashboard", Icon = "Icons", NavigationKey = "DashboardPage" });
-            Items.Add(new SideMenuItem() { Content = "Dashboard", Icon = "Icons", NavigationKey = "DashboardPage" });
-            Items.Add(new SideMenuItem() { Content = "Dashboard", Icon = "Icons", NavigationKey = "DashboardPage" });
+            Items.Add(new SideMenuItem() { Content = "Home", Icon = "\ue69a", NavigationKey = "HomePage" });
+            Items.Add(new SideMenuItem() { Content = "Trend", Icon = "\ue87b", NavigationKey = "TrendPage" });
+            Items.Add(new SideMenuItem() { Content = "Settings", Icon = "\ue66b", NavigationKey = "SettingsPage" });
             this.navigator = navigator;
         }
 
@@ -35,7 +32,7 @@ namespace FactoryMonitor.Client
 
             switch (navigationKey)
             {
-                case "DashboardPage":
+                case "HomePage":
                     navigator.NavigateTo<HomeView>();
                     break;
                 default:

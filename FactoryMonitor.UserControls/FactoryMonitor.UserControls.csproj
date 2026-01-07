@@ -12,7 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resources\Font\iconfont.ttf" />
+    <Resource Include="Resources\Font\iconfont.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\Images\automation.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
