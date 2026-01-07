@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Resources/AppColors.xaml"/>
+        <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Resources/XAML/ControlBarStyle.xaml"/>
+        <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Controls/SideMenu.xaml"/>
+        <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Resources/XAML/PublicResources.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    
+</ResourceDictionary>

@@ -11,6 +11,7 @@
     mc:Ignorable="d">
 
     <Grid>
-        <Button Content="hello the world" FontSize="22" />
+        <Button Content="hello the world" FontSize="22" Background="Red"/>
+        
     </Grid>
 </Page>

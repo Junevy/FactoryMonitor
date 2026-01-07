@@ -2,7 +2,7 @@
 
 namespace FactoryMonitor.Client.Servies.Navigation
 {
-    interface INavigation
+    public interface INavigation
     {
         public void NavigateTo<T>() where T : Page;
     }

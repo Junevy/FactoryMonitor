@@ -62,7 +62,7 @@ namespace FactoryMonitor.UserControls.Controls
             set { SetValue(MenuItemBackgroundProperty, value); }
         }
         public static readonly DependencyProperty MenuItemBackgroundProperty =
-            DependencyProperty.Register("MenuItemBackground", typeof(SolidColorBrush), typeof(SideMenu), new PropertyMetadata(Brushes.Gray));
+            DependencyProperty.Register("MenuItemBackground", typeof(SolidColorBrush), typeof(SideMenu), new PropertyMetadata(Brushes.White));
 
         /// <summary>
         /// The corner radius of each menu item
@@ -120,7 +120,7 @@ namespace FactoryMonitor.UserControls.Controls
             set { SetValue(IndicatorWidthProperty, value); }
         }
         public static readonly DependencyProperty IndicatorWidthProperty =
-            DependencyProperty.Register("IndicatorWidth", typeof(int), typeof(SideMenu), new PropertyMetadata(5));
+            DependencyProperty.Register("IndicatorWidth", typeof(int), typeof(SideMenu), new PropertyMetadata(3));
 
         /// <summary>
         /// The height of the selection indicator
@@ -143,17 +143,6 @@ namespace FactoryMonitor.UserControls.Controls
         }
         public static readonly DependencyProperty IndicatorBackgroundProperty =
             DependencyProperty.Register("IndicatorBackground", typeof(SolidColorBrush), typeof(SideMenu), new PropertyMetadata(Brushes.Purple));
-
-        /// <summary>
-        /// The Visibility of the selection indicator
-        /// </summary>
-        //public Visibility IndicatorVisibility
-        //{
-        //    get { return (Visibility)GetValue(IndicatorVisibilityProperty); }
-        //    set { SetValue(IndicatorVisibilityProperty, value); }
-        //}
-        //public static readonly DependencyProperty IndicatorVisibilityProperty =
-        //    DependencyProperty.Register("IndicatorVisibility", typeof(Visibility), typeof(SideMenu), new PropertyMetadata(Visibility.Visible));
 
         /// <summary>
         /// The corner radius of the selection indicator
@@ -211,7 +200,7 @@ namespace FactoryMonitor.UserControls.Controls
             set { SetValue(ContentVisibilityProperty, value); }
         }
         public static readonly DependencyProperty ContentVisibilityProperty =
-            DependencyProperty.Register("ContentVisibility", typeof(Visibility), typeof(SideMenu), new PropertyMetadata(Visibility.Visible));
+            DependencyProperty.Register("ContentVisibility", typeof(Visibility), typeof(SideMenu), new PropertyMetadata(Visibility.Collapsed));
 
         /// <summary>
         /// The content text type or style of each menu item, see <see cref="FontFamily"/>
@@ -251,7 +240,7 @@ namespace FactoryMonitor.UserControls.Controls
             set { SetValue(IconSizeProperty, value); }
         }
         public static readonly DependencyProperty IconSizeProperty =
-            DependencyProperty.Register("IconSize", typeof(int), typeof(SideMenu), new PropertyMetadata(16));
+            DependencyProperty.Register("IconSize", typeof(int), typeof(SideMenu), new PropertyMetadata(24));
 
         public FontFamily IconFontFamily
         {
@@ -259,7 +248,11 @@ namespace FactoryMonitor.UserControls.Controls
             set { SetValue(IconFontFamilyProperty, value); }
         }
         public static readonly DependencyProperty IconFontFamilyProperty =
-            DependencyProperty.Register("IconFontFamily", typeof(FontFamily), typeof(SideMenu), new PropertyMetadata(new FontFamily("Consolas")));
+            DependencyProperty.Register(nameof(IconFontFamily), typeof(FontFamily), typeof(SideMenu),
+                new PropertyMetadata(
+                    new FontFamily(
+                        new Uri("pack://application:,,,/"),
+                        "/FactoryMonitor.UserControls;component/Resources/Font/#iconfont")));
 
         public SolidColorBrush IconForeground
         {

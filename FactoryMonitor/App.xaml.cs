@@ -1,6 +1,5 @@
 ﻿using FactoryMonitor.Client.Servies.Navigation;
-using FactoryMonitor.UserControls.SideMenu.ViewModels;
-using FactoryMonitor.UserControls.SideMenu.Views;
+using FactoryMonitor.Client.Views;
 using Microsoft.Extensions.DependencyInjection;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,7 +19,7 @@ namespace FactoryMonitor.Client
             base.OnStartup(e);
 
             InitializeContainer();
-            
+
             MainWindow = Current.Provider.GetRequiredService<MainWindow>();
             MainWindow.Show();
         }
@@ -29,11 +28,11 @@ namespace FactoryMonitor.Client
         {
             var container = new ServiceCollection();
 
-            container.AddSingleton<Frame>((e) => new Frame() { NavigationUIVisibility = System.Windows.Navigation.NavigationUIVisibility.Hidden });
+            container.AddSingleton<Frame>(e => new Frame() { NavigationUIVisibility = System.Windows.Navigation.NavigationUIVisibility.Hidden });
             container.AddSingleton<INavigation, Servies.Navigation.NavigationService>();
             container.AddSingleton<MainWindow>();
             container.AddSingleton<MainWindowViewModel>();
-            container.AddSingleton<SideMenuViewModel>();
+            container.AddSingleton<HomeView>();
             //container.AddSingleton<SideMenuControl>();
 
             Provider = container.BuildServiceProvider();
@@ -41,7 +40,7 @@ namespace FactoryMonitor.Client
 
         public T? LoadResource<T>(string? styleName = null) where T : class
         {
-            var result =  Application.Current.Resources[styleName] as T;
+            var result = Application.Current.Resources[styleName] as T;
             if (result == null)
             {
                 throw new System.Exception($"Resource '{styleName}' not found or not of type {typeof(T).FullName}");

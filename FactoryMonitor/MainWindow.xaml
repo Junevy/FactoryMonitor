@@ -89,22 +89,19 @@
             <!--  Sidebar content goes here  -->
             <Grid Grid.Column="0">
                 <Border BorderBrush="{StaticResource BorderForeground}" BorderThickness="0,0,1,0">
-                    <fc:SideMenu ContentVisibility="Collapsed" MenuItemBackground="AliceBlue" IndicatorCornerRadius="0,3,3,0" IndicatorHeight="40" Items="{Binding Items}" />
+                    <fc:SideMenu
+                        NavigateCommand="{Binding NavigateCommand}"
+                        IndicatorCornerRadius="0,3,3,0"
+                        IndicatorHeight="40"
+                        Items="{Binding Items}">
+                    </fc:SideMenu>
                 </Border>
             </Grid>
 
             <!--  content  -->
             <Grid Grid.Column="1">
-                <ContentControl x:Name="MainContentControl">
-                    <fc:SideMenu
-                        Width="600"
-                        Height="30"
-                        Margin="10"
-                        IconVisibility="Visible"
-                        Items="{Binding Items}"
-                        MenuItemCornerRadius="0"
-                        Orientation="Horizontal" />
-                </ContentControl>
+                <ContentControl x:Name="MainContentControl"/>
+                <!--<TextBlock Text="hello" FontSize="100" Background="Red"/>-->
             </Grid>
         </Grid>
 
@@ -113,7 +110,8 @@
             <Border
                 Background="{StaticResource SubBackground}"
                 BorderBrush="{StaticResource BorderForeground}"
-                BorderThickness="0,1,0,0" />
+                BorderThickness="0,1,0,0" >
+            </Border>
         </Grid>
     </Grid>
 </Window>

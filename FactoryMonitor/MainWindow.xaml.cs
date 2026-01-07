@@ -1,5 +1,4 @@
-﻿using FactoryMonitor.UserControls.SideMenu.ViewModels;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -10,12 +9,11 @@ namespace FactoryMonitor.Client
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow(MainWindowViewModel vm, SideMenuViewModel svm)
+        public MainWindow(MainWindowViewModel vm)
         {
             InitializeComponent();
             this.DataContext = vm;
-            this.MainContentControl = App.Current.Provider.GetRequiredService<Frame>()!;
-            //this.SideMenuControl.DataContext = svm;
+            this.MainContentControl.Content = App.Current.Provider.GetRequiredService<Frame>()!;
         }
 
         private void Window_StateChanged(object sender, EventArgs e)
