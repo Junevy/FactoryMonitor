@@ -11,18 +11,41 @@
     d:DesignWidth="800"
     mc:Ignorable="d">
 
-    <Grid VerticalAlignment="Top">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
 
         <fm:SideMenu
-            ContentSize="20"
-            
-            ContentVisibility="Visible"
-            IconSize="16"
-            IconMargin="5,0,5,0"
-            Items="{Binding Items}"
-            MenuItemHeight="30"
-            MenuItemWidth="100"
+            Grid.Row="0"
+            Margin="0,10,0,0"
+            Background="White"
+            CloseButtonVisibility="Visible"
+            CloseCommand="{Binding CloseTabCommand}"
             ContentFontFamily="Arial"
+            ContentSize="20"
+            ContentVisibility="Visible"
+            IconMargin="5,0,5,0"
+            IconSize="16"
+            IndicatorCornerRadius="0"
+            Items="{Binding Items}"
+            MenuItemBackground="White"
+            MenuItemHeight="40"
+            MenuItemWidth="150"
+            NavigateCommand="{Binding NavigateCommand}"
             Orientation="Horizontal" />
+
+        <Border
+            Grid.Row="1"
+            Margin="0,-10,0,0"
+            Background="#f5f5f5"
+            BorderBrush="{StaticResource SubBackground}"
+            BorderThickness="1"
+            CornerRadius="0,5,0,0">
+            <Grid />
+        </Border>
+
     </Grid>
 </Page>

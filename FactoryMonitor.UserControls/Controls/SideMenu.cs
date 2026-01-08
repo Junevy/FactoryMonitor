@@ -327,5 +327,34 @@ namespace FactoryMonitor.UserControls.Controls
             remove => RemoveHandler(SelectionChangedEvent, value);
         }
         #endregion
+
+
+        #region close button
+
+        public Visibility CloseButtonVisibility
+        {
+            get { return (Visibility)GetValue(CloseButtonVisibilityProperty); }
+            set { SetValue(CloseButtonVisibilityProperty, value); }
+        }
+        public static readonly DependencyProperty CloseButtonVisibilityProperty =
+            DependencyProperty.Register("CloseButtonVisibility", typeof(Visibility), typeof(SideMenu), new PropertyMetadata(Visibility.Collapsed));
+
+        public SolidColorBrush CloseButtonBackground
+        {
+            get { return (SolidColorBrush)GetValue(CloseButtonBackgroundProperty); }
+            set { SetValue(CloseButtonBackgroundProperty, value); }
+        }
+        public static readonly DependencyProperty CloseButtonBackgroundProperty =
+            DependencyProperty.Register("CloseButtonBackground", typeof(SolidColorBrush), typeof(SideMenu), new PropertyMetadata(Brushes.Gray));
+
+
+        public ICommand CloseCommand
+        {
+            get { return (ICommand)GetValue(CloseCommandProperty); }
+            set { SetValue(CloseCommandProperty, value); }
+        }
+        public static readonly DependencyProperty CloseCommandProperty =
+            DependencyProperty.Register("CloseCommand", typeof(ICommand), typeof(SideMenu));
+        #endregion
     }
 }

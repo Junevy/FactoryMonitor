@@ -17,9 +17,10 @@ namespace FactoryMonitor.Client
 
         public MainWindowViewModel(INavigation navigator)
         {
-            Items.Add(new SideMenuItem() { Content = "Home", Icon = "\ue69a", NavigationKey = "HomePage" });
+            Items.Add(new SideMenuItem() { Content = "Home", Icon = "\ue65d", NavigationKey = "HomePage", IsSelected = true });
             Items.Add(new SideMenuItem() { Content = "Trend", Icon = "\ue87b", NavigationKey = "TrendPage" });
             Items.Add(new SideMenuItem() { Content = "Settings", Icon = "\ue66b", NavigationKey = "SettingsPage" });
+            Items.Add(new SideMenuItem() { Content = "User", Icon = "\ue7b2", NavigationKey = "UserPage" });
             this.navigator = navigator;
         }
 
@@ -38,6 +39,12 @@ namespace FactoryMonitor.Client
                 default:
                     break;
             }
+        }
+
+        [RelayCommand]
+        private void CloseTab(SideMenuItem item)
+        {
+
         }
 
     }

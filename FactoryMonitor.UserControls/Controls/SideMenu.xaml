@@ -35,6 +35,7 @@
                                                 VerticalAlignment="Stretch"
                                                 Background="{Binding RelativeSource={RelativeSource AncestorType=local:SideMenu}, Path=MenuItemBackground}"
                                                 CornerRadius="{Binding RelativeSource={RelativeSource AncestorType=local:SideMenu}, Path=MenuItemCornerRadius}">
+
                                                 <Grid RenderTransformOrigin="0.5,0.5">
                                                     <Grid.RenderTransform>
                                                         <ScaleTransform x:Name="ButtonScale" ScaleX="1" ScaleY="1" />
@@ -62,14 +63,21 @@
                                                         <ContentPresenter.ContentTemplate>
                                                             <DataTemplate>
                                                                 <Grid>
+                                                                    <Grid.ColumnDefinitions>
+                                                                        <ColumnDefinition Width="*" />
+                                                                        <ColumnDefinition Width="auto" />
+                                                                    </Grid.ColumnDefinitions>
+
                                                                     <StackPanel
+                                                                        x:Name="OrientationPanel"
+                                                                        Grid.Column="0"
                                                                         HorizontalAlignment="Stretch"
                                                                         VerticalAlignment="Stretch"
                                                                         Orientation="{Binding RelativeSource={RelativeSource AncestorType=local:SideMenu}, Path=Orientation}">
                                                                         <TextBlock
+                                                                            Margin="{Binding RelativeSource={RelativeSource AncestorType=local:SideMenu}, Path=IconMargin}"
                                                                             HorizontalAlignment="Center"
                                                                             VerticalAlignment="Center"
-                                                                            Margin="{Binding RelativeSource={RelativeSource AncestorType=local:SideMenu}, Path=IconMargin}"
                                                                             FontFamily="{Binding RelativeSource={RelativeSource AncestorType=local:SideMenu}, Path=IconFontFamily}"
                                                                             FontSize="{Binding RelativeSource={RelativeSource AncestorType=local:SideMenu}, Path=IconSize}"
                                                                             Foreground="{Binding RelativeSource={RelativeSource AncestorType=local:SideMenu}, Path=IconForeground}"
@@ -77,16 +85,55 @@
                                                                             Visibility="{Binding RelativeSource={RelativeSource AncestorType=local:SideMenu}, Path=IconVisibility}" />
 
                                                                         <TextBlock
+                                                                            Margin="{Binding RelativeSource={RelativeSource AncestorType=local:SideMenu}, Path=ContentMargin}"
                                                                             HorizontalAlignment="Center"
                                                                             VerticalAlignment="Center"
-                                                                            Margin="{Binding RelativeSource={RelativeSource AncestorType=local:SideMenu}, Path=ContentMargin}"
                                                                             FontFamily="{Binding RelativeSource={RelativeSource AncestorType=local:SideMenu}, Path=ContentFontFamily}"
                                                                             FontSize="{Binding RelativeSource={RelativeSource AncestorType=local:SideMenu}, Path=ContentSize}"
                                                                             Foreground="{Binding RelativeSource={RelativeSource AncestorType=local:SideMenu}, Path=Foreground}"
                                                                             Text="{Binding Content}"
                                                                             Visibility="{Binding RelativeSource={RelativeSource AncestorType=local:SideMenu}, Path=ContentVisibility}" />
                                                                     </StackPanel>
+
+                                                                    <Button
+                                                                        x:Name="CloseButton"
+                                                                        Grid.Column="1"
+                                                                        Margin="10,0,10,0"
+                                                                        HorizontalAlignment="Right"
+                                                                        VerticalAlignment="Center"
+                                                                        Command="{Binding RelativeSource={RelativeSource AncestorType=local:SideMenu}, Path=CloseCommand, Mode=TwoWay}"
+                                                                        CommandParameter="{Binding}"
+                                                                        Content="&#xe639;"
+                                                                        FontFamily="pack://application:,,,/FactoryMonitor.UserControls;component/Resources/Font/#iconfont"
+                                                                        Visibility="{Binding RelativeSource={RelativeSource AncestorType=local:SideMenu}, Path=CloseButtonVisibility}">
+                                                                        <Button.Template>
+                                                                            <ControlTemplate TargetType="Button">
+                                                                                <Border
+                                                                                    x:Name="CloseButtonBg"
+                                                                                    Background="{DynamicResource SubBackground}"
+                                                                                    CornerRadius="5">
+                                                                                    <Label Content="{TemplateBinding Content}" />
+                                                                                </Border>
+
+                                                                                <ControlTemplate.Triggers>
+                                                                                    <Trigger Property="IsMouseOver" Value="True">
+                                                                                        <Setter TargetName="CloseButtonBg" Property="Background" Value="Gray" />
+                                                                                    </Trigger>
+                                                                                    <Trigger Property="IsMouseCaptured" Value="True">
+                                                                                        <Setter TargetName="CloseButtonBg" Property="Background" Value="Tomato" />
+                                                                                    </Trigger>
+
+                                                                                </ControlTemplate.Triggers>
+                                                                            </ControlTemplate>
+                                                                        </Button.Template>
+                                                                    </Button>
                                                                 </Grid>
+
+                                                                <DataTemplate.Triggers>
+                                                                    <DataTrigger Binding="{Binding ElementName=OrientationPanel, Path=Orientation}" Value="Vertical">
+                                                                        <Setter TargetName="CloseButton" Property="Visibility" Value="Collapsed" />
+                                                                    </DataTrigger>
+                                                                </DataTemplate.Triggers>
                                                             </DataTemplate>
                                                         </ContentPresenter.ContentTemplate>
                                                     </ContentPresenter>
@@ -134,6 +181,7 @@
                                                 <DataTrigger Binding="{Binding IsSelected}" Value="True">
                                                     <Setter TargetName="Indicator" Property="Opacity" Value="1" />
                                                     <Setter TargetName="ContainerBorder" Property="Background" Value="{DynamicResource PressedBackground}" />
+
                                                 </DataTrigger>
                                             </ControlTemplate.Triggers>
                                         </ControlTemplate>
