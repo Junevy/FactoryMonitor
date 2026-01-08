@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace FactoryMonitor.UserControls.Controls
+namespace FactoryMonitor.UserControls.Controls.ItemsControl
 {
     public class SideMenuItem : DependencyObject
     {

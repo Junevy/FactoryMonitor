@@ -2,7 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using FactoryMonitor.Client.Servies.Navigation;
 using FactoryMonitor.Client.Views;
-using FactoryMonitor.UserControls.Controls;
+using FactoryMonitor.UserControls.Controls.ItemsControl;
 using System.Collections.ObjectModel;
 
 namespace FactoryMonitor.Client

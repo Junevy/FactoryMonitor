@@ -1,11 +1,12 @@
-﻿using System.Windows;
+﻿using FactoryMonitor.UserControls.Controls.Base;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 
-namespace FactoryMonitor.UserControls.Controls
+namespace FactoryMonitor.UserControls.Controls.ItemsControl
 {
-    public class SideMenu : Control
+    public class SideMenu : IconBase
     {
 
         static SideMenu()
@@ -161,65 +162,65 @@ namespace FactoryMonitor.UserControls.Controls
         /// <summary>
         /// The content text of each menu item
         /// </summary>
-        public string Content
-        {
-            get { return (string)GetValue(ContentProperty); }
-            set { SetValue(ContentProperty, value); }
-        }
-        public static readonly DependencyProperty ContentProperty =
-            DependencyProperty.Register("Content", typeof(string), typeof(SideMenu), new PropertyMetadata(""));
+        //public string Content
+        //{
+        //    get { return (string)GetValue(ContentProperty); }
+        //    set { SetValue(ContentProperty, value); }
+        //}
+        //public static readonly DependencyProperty ContentProperty =
+        //    DependencyProperty.Register("Content", typeof(string), typeof(SideMenu), new PropertyMetadata(""));
 
-        /// <summary>
-        /// The content text size of each menu item
-        /// </summary>
-        public int ContentSize
-        {
-            get { return (int)GetValue(ContentSizeProperty); }
-            set { SetValue(ContentSizeProperty, value); }
-        }
-        public static readonly DependencyProperty ContentSizeProperty =
-            DependencyProperty.Register("ContentSize", typeof(int), typeof(SideMenu), new PropertyMetadata(10));
+        ///// <summary>
+        ///// The content text size of each menu item
+        ///// </summary>
+        //public int ContentSize
+        //{
+        //    get { return (int)GetValue(ContentSizeProperty); }
+        //    set { SetValue(ContentSizeProperty, value); }
+        //}
+        //public static readonly DependencyProperty ContentSizeProperty =
+        //    DependencyProperty.Register("ContentSize", typeof(int), typeof(SideMenu), new PropertyMetadata(10));
 
-        /// <summary>
-        /// The content text <see cref="Brushes"/> of each menu item
-        /// </summary>
-        public SolidColorBrush ContentForeground
-        {
-            get { return (SolidColorBrush)GetValue(ContentForegroundProperty); }
-            set { SetValue(ContentForegroundProperty, value); }
-        }
-        public static readonly DependencyProperty ContentForegroundProperty =
-            DependencyProperty.Register("ContentForeground", typeof(SolidColorBrush), typeof(SideMenu), new PropertyMetadata(Brushes.Black));
+        ///// <summary>
+        ///// The content text <see cref="Brushes"/> of each menu item
+        ///// </summary>
+        //public SolidColorBrush ContentForeground
+        //{
+        //    get { return (SolidColorBrush)GetValue(ContentForegroundProperty); }
+        //    set { SetValue(ContentForegroundProperty, value); }
+        //}
+        //public static readonly DependencyProperty ContentForegroundProperty =
+        //    DependencyProperty.Register("ContentForeground", typeof(SolidColorBrush), typeof(SideMenu), new PropertyMetadata(Brushes.Black));
 
-        /// <summary>
-        /// The content text <see cref="Visibility"/> of each menu item
-        /// </summary>
-        public Visibility ContentVisibility
-        {
-            get { return (Visibility)GetValue(ContentVisibilityProperty); }
-            set { SetValue(ContentVisibilityProperty, value); }
-        }
-        public static readonly DependencyProperty ContentVisibilityProperty =
-            DependencyProperty.Register("ContentVisibility", typeof(Visibility), typeof(SideMenu), new PropertyMetadata(Visibility.Collapsed));
+        ///// <summary>
+        ///// The content text <see cref="Visibility"/> of each menu item
+        ///// </summary>
+        //public Visibility ContentVisibility
+        //{
+        //    get { return (Visibility)GetValue(ContentVisibilityProperty); }
+        //    set { SetValue(ContentVisibilityProperty, value); }
+        //}
+        //public static readonly DependencyProperty ContentVisibilityProperty =
+        //    DependencyProperty.Register("ContentVisibility", typeof(Visibility), typeof(SideMenu), new PropertyMetadata(Visibility.Collapsed));
 
-        /// <summary>
-        /// The content text type or style of each menu item, see <see cref="FontFamily"/>
-        /// </summary>
-        public FontFamily ContentFontFamily
-        {
-            get { return (FontFamily)GetValue(ContentFontFamilyProperty); }
-            set { SetValue(ContentFontFamilyProperty, value); }
-        }
-        public static readonly DependencyProperty ContentFontFamilyProperty =
-            DependencyProperty.Register("ContentFontFamily", typeof(FontFamily), typeof(SideMenu), new PropertyMetadata(new FontFamily("Consolas")));
+        ///// <summary>
+        ///// The content text type or style of each menu item, see <see cref="FontFamily"/>
+        ///// </summary>
+        //public FontFamily ContentFontFamily
+        //{
+        //    get { return (FontFamily)GetValue(ContentFontFamilyProperty); }
+        //    set { SetValue(ContentFontFamilyProperty, value); }
+        //}
+        //public static readonly DependencyProperty ContentFontFamilyProperty =
+        //    DependencyProperty.Register("ContentFontFamily", typeof(FontFamily), typeof(SideMenu), new PropertyMetadata(new FontFamily("Consolas")));
 
-        public Thickness ContentMargin
-        {
-            get { return (Thickness)GetValue(ContentMarginProperty); }
-            set { SetValue(ContentMarginProperty, value); }
-        }
-        public static readonly DependencyProperty ContentMarginProperty =
-            DependencyProperty.Register("ContentMargin", typeof(Thickness), typeof(SideMenu), new PropertyMetadata(new Thickness(0)));
+        //public Thickness ContentMargin
+        //{
+        //    get { return (Thickness)GetValue(ContentMarginProperty); }
+        //    set { SetValue(ContentMarginProperty, value); }
+        //}
+        //public static readonly DependencyProperty ContentMarginProperty =
+        //    DependencyProperty.Register("ContentMargin", typeof(Thickness), typeof(SideMenu), new PropertyMetadata(new Thickness(0)));
 
 
 
@@ -228,59 +229,57 @@ namespace FactoryMonitor.UserControls.Controls
 
         #region icon properties
 
-        public string Icon
-        {
-            get { return (string)GetValue(IconProperty); }
-            set { SetValue(IconProperty, value); }
-        }
-        public static readonly DependencyProperty IconProperty =
-            DependencyProperty.Register("Icon", typeof(string), typeof(SideMenu), new PropertyMetadata(""));
+        //public string Icon
+        //{
+        //    get { return (string)GetValue(IconProperty); }
+        //    set { SetValue(IconProperty, value); }
+        //}
+        //public static readonly DependencyProperty IconProperty =
+        //    DependencyProperty.Register("Icon", typeof(string), typeof(SideMenu), new PropertyMetadata(""));
 
-        public Visibility IconVisibility
-        {
-            get { return (Visibility)GetValue(IconVisibilityProperty); }
-            set { SetValue(IconVisibilityProperty, value); }
-        }
-        public static readonly DependencyProperty IconVisibilityProperty =
-            DependencyProperty.Register("IconVisibility", typeof(Visibility), typeof(SideMenu), new PropertyMetadata(Visibility.Visible));
+        //public Visibility IconVisibility
+        //{
+        //    get { return (Visibility)GetValue(IconVisibilityProperty); }
+        //    set { SetValue(IconVisibilityProperty, value); }
+        //}
+        //public static readonly DependencyProperty IconVisibilityProperty =
+        //    DependencyProperty.Register("IconVisibility", typeof(Visibility), typeof(SideMenu), new PropertyMetadata(Visibility.Visible));
 
-        public int IconSize
-        {
-            get { return (int)GetValue(IconSizeProperty); }
-            set { SetValue(IconSizeProperty, value); }
-        }
-        public static readonly DependencyProperty IconSizeProperty =
-            DependencyProperty.Register("IconSize", typeof(int), typeof(SideMenu), new PropertyMetadata(24));
+        //public int IconSize
+        //{
+        //    get { return (int)GetValue(IconSizeProperty); }
+        //    set { SetValue(IconSizeProperty, value); }
+        //}
+        //public static readonly DependencyProperty IconSizeProperty =
+        //    DependencyProperty.Register("IconSize", typeof(int), typeof(SideMenu), new PropertyMetadata(24));
 
-        public FontFamily IconFontFamily
-        {
-            get { return (FontFamily)GetValue(IconFontFamilyProperty); }
-            set { SetValue(IconFontFamilyProperty, value); }
-        }
-        public static readonly DependencyProperty IconFontFamilyProperty =
-            DependencyProperty.Register(nameof(IconFontFamily), typeof(FontFamily), typeof(SideMenu),
-                new PropertyMetadata(
-                    new FontFamily(
-                        new Uri("pack://application:,,,/"),
-                        "/FactoryMonitor.UserControls;component/Resources/Font/#iconfont")));
+        //public FontFamily IconFontFamily
+        //{
+        //    get { return (FontFamily)GetValue(IconFontFamilyProperty); }
+        //    set { SetValue(IconFontFamilyProperty, value); }
+        //}
+        //public static readonly DependencyProperty IconFontFamilyProperty =
+        //    DependencyProperty.Register(nameof(IconFontFamily), typeof(FontFamily), typeof(SideMenu),
+        //        new PropertyMetadata(
+        //            new FontFamily(
+        //                new Uri("pack://application:,,,/"),
+        //                "/FactoryMonitor.UserControls;component/Resources/Font/#iconfont")));
 
-        public SolidColorBrush IconForeground
-        {
-            get { return (SolidColorBrush)GetValue(IconForegroundProperty); }
-            set { SetValue(IconForegroundProperty, value); }
-        }
-        public static readonly DependencyProperty IconForegroundProperty =
-            DependencyProperty.Register("IconForeground", typeof(SolidColorBrush), typeof(SideMenu), new PropertyMetadata(Brushes.Black));
+        //public SolidColorBrush IconForeground
+        //{
+        //    get { return (SolidColorBrush)GetValue(IconForegroundProperty); }
+        //    set { SetValue(IconForegroundProperty, value); }
+        //}
+        //public static readonly DependencyProperty IconForegroundProperty =
+        //    DependencyProperty.Register("IconForeground", typeof(SolidColorBrush), typeof(SideMenu), new PropertyMetadata(Brushes.Black));
 
-
-
-        public Thickness IconMargin
-        {
-            get { return (Thickness)GetValue(IconMarginProperty); }
-            set { SetValue(IconMarginProperty, value); }
-        }
-        public static readonly DependencyProperty IconMarginProperty =
-            DependencyProperty.Register("IconMargin", typeof(Thickness), typeof(SideMenu), new PropertyMetadata(new Thickness(0)));
+        //public Thickness IconMargin
+        //{
+        //    get { return (Thickness)GetValue(IconMarginProperty); }
+        //    set { SetValue(IconMarginProperty, value); }
+        //}
+        //public static readonly DependencyProperty IconMarginProperty =
+        //    DependencyProperty.Register("IconMargin", typeof(Thickness), typeof(SideMenu), new PropertyMetadata(new Thickness(0)));
 
 
 
