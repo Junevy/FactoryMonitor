@@ -156,6 +156,8 @@
                                         </Grid>
                                     </Border>
 
+
+
                                     <ControlTemplate.Triggers>
                                         <!--  点击缩放动画  -->
                                         <Trigger Property="IsPressed" Value="True">
@@ -165,12 +167,12 @@
                                                         <DoubleAnimation
                                                             Storyboard.TargetName="ButtonScale"
                                                             Storyboard.TargetProperty="ScaleX"
-                                                            To="0.5"
+                                                            To="0.8"
                                                             Duration="0:0:0.2" />
                                                         <DoubleAnimation
                                                             Storyboard.TargetName="ButtonScale"
                                                             Storyboard.TargetProperty="ScaleY"
-                                                            To="0.5"
+                                                            To="0.8"
                                                             Duration="0:0:0.2" />
                                                     </Storyboard>
                                                 </BeginStoryboard>
@@ -182,12 +184,12 @@
                                                             Storyboard.TargetName="ButtonScale"
                                                             Storyboard.TargetProperty="ScaleX"
                                                             To="1"
-                                                            Duration="0:0:0.2" />
+                                                            Duration="0:0:0.3" />
                                                         <DoubleAnimation
                                                             Storyboard.TargetName="ButtonScale"
                                                             Storyboard.TargetProperty="ScaleY"
                                                             To="1"
-                                                            Duration="0:0:0.2" />
+                                                            Duration="0:0:0.3" />
                                                     </Storyboard>
                                                 </BeginStoryboard>
                                             </Trigger.ExitActions>
