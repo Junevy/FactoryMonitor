@@ -91,9 +91,9 @@
 
             <!--  Sidebar content goes here  -->
             <Grid Grid.Column="0">
-                <Border BorderBrush="{StaticResource BorderForeground}" BorderThickness="0,0,1,0">
+                <Border BorderBrush="{StaticResource BorderForeground}" BorderThickness="0,0,0,0">
                     <fm:SideMenu
-                        fm:IconHelper.IconSize="24"
+                        fm:IconHelper.Size="24"
                         ItemsSource="{Binding Items}"
                         NavigateCommand="{Binding NavigateCommand}" />
                 </Border>

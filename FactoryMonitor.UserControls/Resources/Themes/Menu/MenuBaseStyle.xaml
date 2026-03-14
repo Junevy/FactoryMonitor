@@ -90,22 +90,25 @@
                                                                 Orientation="{Binding RelativeSource={RelativeSource AncestorType=controls:MenuBase}, Path=Orientation}">
 
                                                                 <ContentControl
+                                                                    Margin="{Binding RelativeSource={RelativeSource AncestorType=controls:MenuBase}, Path=(helper:IconHelper.Margin)}"
                                                                     HorizontalAlignment="Center"
                                                                     VerticalAlignment="Center"
                                                                     Content="{Binding Icon}"
-                                                                    FontFamily="{Binding RelativeSource={RelativeSource AncestorType=controls:MenuBase}, Path=(helper:IconHelper.IconFontFamily)}"
-                                                                    FontSize="{Binding RelativeSource={RelativeSource AncestorType=controls:MenuBase}, Path=(helper:IconHelper.IconSize)}"
-                                                                    Foreground="{Binding RelativeSource={RelativeSource AncestorType=controls:MenuBase}, Path=(helper:IconHelper.IconForeground)}" />
+                                                                    Focusable="False"
+                                                                    FontFamily="{Binding RelativeSource={RelativeSource AncestorType=controls:MenuBase}, Path=(helper:IconHelper.FontFamily)}"
+                                                                    FontSize="{Binding RelativeSource={RelativeSource AncestorType=controls:MenuBase}, Path=(helper:IconHelper.Size)}"
+                                                                    Foreground="{Binding RelativeSource={RelativeSource AncestorType=controls:MenuBase}, Path=(helper:IconHelper.Foreground)}" />
 
-                                                                <TextBlock
-                                                                    Margin="{Binding RelativeSource={RelativeSource AncestorType=controls:MenuBase}, Path=ContentMargin}"
+                                                                <ContentControl
+                                                                    Margin="{Binding RelativeSource={RelativeSource AncestorType=controls:MenuBase}, Path=(helper:TitleHelper.Margin)}"
                                                                     HorizontalAlignment="Center"
                                                                     VerticalAlignment="Center"
-                                                                    FontFamily="{Binding RelativeSource={RelativeSource AncestorType=controls:MenuBase}, Path=ContentFontFamily}"
-                                                                    FontSize="{Binding RelativeSource={RelativeSource AncestorType=controls:MenuBase}, Path=ContentSize}"
-                                                                    Foreground="{Binding RelativeSource={RelativeSource AncestorType=controls:MenuBase}, Path=Foreground}"
-                                                                    Text="{Binding Content}"
-                                                                    Visibility="{Binding RelativeSource={RelativeSource AncestorType=controls:MenuBase}, Path=ContentVisibility}" />
+                                                                    Content="{Binding Title}"
+                                                                    Focusable="False"
+                                                                    FontFamily="{Binding RelativeSource={RelativeSource AncestorType=controls:MenuBase}, Path=(helper:TitleHelper.FontFamily)}"
+                                                                    FontSize="{Binding RelativeSource={RelativeSource AncestorType=controls:MenuBase}, Path=(helper:TitleHelper.Size)}"
+                                                                    Foreground="{Binding RelativeSource={RelativeSource AncestorType=controls:MenuBase}, Path=(helper:TitleHelper.Foreground)}"
+                                                                    Visibility="{Binding RelativeSource={RelativeSource AncestorType=controls:MenuBase}, Path=(helper:TitleHelper.Visibility)}" />
                                                             </StackPanel>
 
                                                             <Button

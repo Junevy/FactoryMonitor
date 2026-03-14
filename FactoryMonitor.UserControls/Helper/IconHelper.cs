@@ -18,59 +18,65 @@ namespace FactoryMonitor.UserControls.Helper
 
 
 
-        public static int GetIconSize(DependencyObject obj)
+
+        public static int GetSize(DependencyObject obj)
         {
-            return (int)obj.GetValue(IconSizeProperty);
+            return (int)obj.GetValue(SizeProperty);
         }
 
-        public static void SetIconSize(DependencyObject obj, int value)
+        public static void SetSize(DependencyObject obj, int value)
         {
-            obj.SetValue(IconSizeProperty, value);
+            obj.SetValue(SizeProperty, value);
         }
-        public static readonly DependencyProperty IconSizeProperty =
-            DependencyProperty.RegisterAttached("IconSize", typeof(int), typeof(IconHelper), new PropertyMetadata(30));
+        public static readonly DependencyProperty SizeProperty =
+            DependencyProperty.RegisterAttached("Size", typeof(int), typeof(IconHelper), new PropertyMetadata(16));
 
 
 
-        public static SolidColorBrush GetIconForeground(DependencyObject obj)
+
+        public static SolidColorBrush GetForeground(DependencyObject obj)
         {
-            return (SolidColorBrush)obj.GetValue(IconForegroundProperty);
-        }
-
-        public static void SetIconForeground(DependencyObject obj, SolidColorBrush value)
-        {
-            obj.SetValue(IconForegroundProperty, value);
-        }
-        public static readonly DependencyProperty IconForegroundProperty =
-            DependencyProperty.RegisterAttached("IconForeground", typeof(SolidColorBrush), typeof(IconHelper), new PropertyMetadata(Brushes.Black));
-
-
-
-        public static Thickness GetIconMargin(DependencyObject obj)
-        {
-            return (Thickness)obj.GetValue(IconMarginProperty);
+            return (SolidColorBrush)obj.GetValue(ForegroundProperty);
         }
 
-        public static void SetIconMargin(DependencyObject obj, Thickness value)
+        public static void SetForeground(DependencyObject obj, SolidColorBrush value)
         {
-            obj.SetValue(IconMarginProperty, value);
+            obj.SetValue(ForegroundProperty, value);
         }
-        public static readonly DependencyProperty IconMarginProperty =
-            DependencyProperty.RegisterAttached("IconMargin", typeof(Thickness), typeof(IconHelper), new PropertyMetadata(new Thickness(0)));
+        public static readonly DependencyProperty ForegroundProperty =
+            DependencyProperty.RegisterAttached("Foreground", typeof(SolidColorBrush), typeof(IconHelper), new PropertyMetadata(Brushes.Black));
 
 
-        public static FontFamily GetIconFontFamily(DependencyObject obj)
+
+
+        public static Thickness GetMargin(DependencyObject obj)
         {
-            return (FontFamily)obj.GetValue(IconFontFamilyProperty);
+            return (Thickness)obj.GetValue(MarginProperty);
         }
 
-        public static void SetIconFontFamily(DependencyObject obj, FontFamily value)
+        public static void SetMargin(DependencyObject obj, Thickness value)
         {
-            obj.SetValue(IconFontFamilyProperty, value);
+            obj.SetValue(MarginProperty, value);
         }
-        public static readonly DependencyProperty IconFontFamilyProperty =
-            DependencyProperty.RegisterAttached("IconFontFamily", typeof(FontFamily), typeof(IconHelper), 
-                new PropertyMetadata(new FontFamily(
+        public static readonly DependencyProperty MarginProperty =
+            DependencyProperty.RegisterAttached("Margin", typeof(Thickness), typeof(IconHelper), new PropertyMetadata(new Thickness(0,5,5,5)));
+
+
+
+
+        public static FontFamily GetFontFamily(DependencyObject obj)
+        {
+            return (FontFamily)obj.GetValue(FontFamilyProperty);
+        }
+
+        public static void SetFontFamily(DependencyObject obj, FontFamily value)
+        {
+            obj.SetValue(FontFamilyProperty, value);
+        }
+        public static readonly DependencyProperty FontFamilyProperty =
+            DependencyProperty.RegisterAttached("FontFamily", typeof(FontFamily), typeof(IconHelper), 
+                new PropertyMetadata(
+                    new FontFamily(
                         new Uri("pack://application:,,,/"),
                             "/FactoryMonitor.UserControls;component/Resources/Font/#iconfont")));
 

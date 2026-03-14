@@ -19,7 +19,12 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <fm:TabMenu Grid.Row="0" ItemsSource="{Binding Items}" />
+        <fm:TabMenu
+            Grid.Row="0"
+            fm:TitleHelper.Size="12"
+            fm:TitleHelper.Visibility="Visible"
+            fm:IconHelper.Margin="5,0,5,0"
+            ItemsSource="{Binding Items}" />
 
         <Border
             Grid.Row="1"

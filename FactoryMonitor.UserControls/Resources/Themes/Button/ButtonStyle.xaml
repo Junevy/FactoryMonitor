@@ -86,13 +86,13 @@
                             </Grid.ColumnDefinitions>
                             <ContentControl
                                 Grid.Column="0"
-                                Margin="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.IconMargin)}"
+                                Margin="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.Margin)}"
                                 HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                 Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.Icon)}"
-                                FontFamily="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.IconFontFamily)}"
-                                FontSize="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.IconSize)}"
-                                Foreground="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.IconForeground)}" />
+                                FontFamily="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.FontFamily)}"
+                                FontSize="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.Size)}"
+                                Foreground="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.Foreground)}" />
 
                             <ContentPresenter
                                 Grid.Column="1"

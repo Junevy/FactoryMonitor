@@ -17,10 +17,10 @@ namespace FactoryMonitor.Client.ViewModels
 
         public MainWindowViewModel(INavigation navigator)
         {
-            Items.Add(new MenuItem() { Content = "Home", Icon = "\ue65d", NavigationKey = "HomePage", IsSelected = true });
-            Items.Add(new MenuItem() { Content = "Trend", Icon = "\ue87b", NavigationKey = "TrendPage" });
-            Items.Add(new MenuItem() { Content = "Settings", Icon = "\ue66b", NavigationKey = "SettingsPage" });
-            Items.Add(new MenuItem() { Content = "User", Icon = "\ue7b2", NavigationKey = "UserPage" });
+            Items.Add(new MenuItem() { Title = "Home", Icon = "\ue65d", NavigationKey = "HomePage", IsSelected = true });
+            Items.Add(new MenuItem() { Title = "Trend", Icon = "\ue87b", NavigationKey = "TrendPage" });
+            Items.Add(new MenuItem() { Title = "Settings", Icon = "\ue66b", NavigationKey = "SettingsPage" });
+            Items.Add(new MenuItem() { Title = "User", Icon = "\ue7b2", NavigationKey = "UserPage" });
             this.navigator = navigator;
         }
 
