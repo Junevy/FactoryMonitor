@@ -1,14 +1,21 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Resources/AppColors.xaml"/>
-        <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Controls/ItemsControl/ControlBarStyle.xaml"/>
-        <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Controls/ItemsControl/SideMenu.xaml"/>
-        <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Animations/Button.xaml"/>
-        <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Resources/DefaultFocusStyle.xaml"/>
-        <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Resources/Fonts.xaml"/>
-        <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Controls/Button/Button.xaml"/>
+        <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Resources/Themes/Base/AppColors.xaml" />
+        <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Resources/Themes/Base/DefaultFocusStyle.xaml" />
+
+        <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Animations/Button.xaml" />
+        <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Resources/Font/Fonts.xaml" />
+
+        <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Resources/Themes/Bar/ControlBarStyle.xaml" />
+        <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Resources/Themes/Button/ButtonStyle.xaml" />
+        <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Resources/Themes/Menu/MenuBaseStyle.xaml" />
+        <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Resources/Themes/Menu/SideMenuStyle.xaml" />
+        <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Resources/Themes/Menu/TabMenuStyle.xaml" />
+        <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Resources/Images/ImageSources.xaml" />
+        <!--<ResourceDictionary>
+            <Image x:Key="automation" Source="/FactoryMonitor.UserControls;component/Resources/Images/automation.png" />
+        </ResourceDictionary>-->
     </ResourceDictionary.MergedDictionaries>
-    
+
 </ResourceDictionary>

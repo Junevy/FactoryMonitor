@@ -12,6 +12,7 @@ namespace FactoryMonitor.Client.Views
         {
             InitializeComponent();
             this.DataContext = vm;
+            
         }
     }
 }

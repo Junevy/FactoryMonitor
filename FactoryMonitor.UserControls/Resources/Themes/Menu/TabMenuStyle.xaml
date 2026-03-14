@@ -1,0 +1,24 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:FactoryMonitor.UserControls.Controls.Menu">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Resources/Themes/Menu/MenuBaseStyle.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style BasedOn="{StaticResource MenuStyleBase}" TargetType="{x:Type controls:TabMenu}">
+        <Setter Property="Orientation" Value="Horizontal" />
+        <Setter Property="ElementOrientation" Value="Horizontal" />
+        <Setter Property="CloseButtonVisibility" Value="Visible" />
+        <Setter Property="Background" Value="{DynamicResource MainBackground}" />
+        <Setter Property="ContentFontFamily" Value="Arial" />
+        <Setter Property="ContentSize" Value="12" />
+        <Setter Property="ContentVisibility" Value="Visible" />
+        <Setter Property="IndicatorCornerRadius" Value="0" />
+        <Setter Property="MenuItemBackground" Value="{DynamicResource MainBackground}" />
+        <Setter Property="MenuItemHeight" Value="30" />
+        <Setter Property="MenuItemWidth" Value="150" />
+
+    </Style>
+</ResourceDictionary>

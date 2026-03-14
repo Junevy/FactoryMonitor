@@ -13,6 +13,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\FactoryMonitor.Common\FactoryMonitor.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Resources\Font\iconfont.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>

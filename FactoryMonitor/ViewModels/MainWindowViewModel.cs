@@ -2,30 +2,30 @@
 using CommunityToolkit.Mvvm.Input;
 using FactoryMonitor.Client.Servies.Navigation;
 using FactoryMonitor.Client.Views;
-using FactoryMonitor.UserControls.Controls.ItemsControl;
+using FactoryMonitor.UserControls.Controls.Menu;
 using System.Collections.ObjectModel;
 
-namespace FactoryMonitor.Client
+namespace FactoryMonitor.Client.ViewModels
 {
     public partial class MainWindowViewModel : ObservableObject
     {
-        public ObservableCollection<SideMenuItem> Items { get; set; } = [];
+        public ObservableCollection<MenuItem> Items { get; set; } = [];
         private readonly INavigation navigator;
 
         [ObservableProperty]
-        private SideMenuItem selectedItem;
+        private MenuItem selectedItem;
 
         public MainWindowViewModel(INavigation navigator)
         {
-            Items.Add(new SideMenuItem() { Content = "Home", Icon = "\ue65d", NavigationKey = "HomePage", IsSelected = true });
-            Items.Add(new SideMenuItem() { Content = "Trend", Icon = "\ue87b", NavigationKey = "TrendPage" });
-            Items.Add(new SideMenuItem() { Content = "Settings", Icon = "\ue66b", NavigationKey = "SettingsPage" });
-            Items.Add(new SideMenuItem() { Content = "User", Icon = "\ue7b2", NavigationKey = "UserPage" });
+            Items.Add(new MenuItem() { Content = "Home", Icon = "\ue65d", NavigationKey = "HomePage", IsSelected = true });
+            Items.Add(new MenuItem() { Content = "Trend", Icon = "\ue87b", NavigationKey = "TrendPage" });
+            Items.Add(new MenuItem() { Content = "Settings", Icon = "\ue66b", NavigationKey = "SettingsPage" });
+            Items.Add(new MenuItem() { Content = "User", Icon = "\ue7b2", NavigationKey = "UserPage" });
             this.navigator = navigator;
         }
 
         [RelayCommand]
-        private void Navigate(SideMenuItem item)
+        private void Navigate(MenuItem item)
         {
             if (item == null)
                 return;
@@ -42,7 +42,7 @@ namespace FactoryMonitor.Client
         }
 
         [RelayCommand]
-        private void CloseTab(SideMenuItem item)
+        private void CloseTab(MenuItem item)
         {
 
         }

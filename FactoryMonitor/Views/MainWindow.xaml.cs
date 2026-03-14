@@ -1,8 +1,9 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using FactoryMonitor.Client.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace FactoryMonitor.Client
+namespace FactoryMonitor.Client.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

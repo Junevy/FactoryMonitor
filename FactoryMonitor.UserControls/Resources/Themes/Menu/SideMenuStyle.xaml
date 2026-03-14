@@ -1,0 +1,16 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:controls="clr-namespace:FactoryMonitor.UserControls.Controls.Menu">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Resources/Themes/Menu/MenuBaseStyle.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style BasedOn="{StaticResource MenuStyleBase}" TargetType="{x:Type controls:SideMenu}">
+        <Setter Property="Orientation" Value="Vertical" />
+        <Setter Property="CloseButtonVisibility" Value="Hidden" />
+        
+    </Style>
+
+</ResourceDictionary>

@@ -6,20 +6,8 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-
-                <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Resources/FactoryMonitorControls.xaml"/>
-
-                <!--<ResourceDictionary Source="/FactoryMonitor.UserControls;component/Resources/AppColors.xaml"/>
-
-                <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Resources/XAML/ControlBarStyle.xaml" />
-                <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Controls/SideMenu.xaml"/>-->
-                
-                
-
+                <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Resources/FactoryMonitorControls.xaml" />
             </ResourceDictionary.MergedDictionaries>
-
-
-
         </ResourceDictionary>
     </Application.Resources>
 </Application>

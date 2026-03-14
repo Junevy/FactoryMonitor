@@ -1,4 +1,4 @@
-﻿using FactoryMonitor.UserControls.Controls.ItemsControl;
+﻿using FactoryMonitor.UserControls.Controls.Menu;
 using System.Windows;
 using System.Windows.Media;
 
@@ -12,7 +12,7 @@ namespace FactoryMonitor.UserControls.Controls.Button
             set { SetValue(IconProperty, value); }
         }
         public static readonly DependencyProperty IconProperty =
-            DependencyProperty.Register("Icon", typeof(string), typeof(SideMenu), new PropertyMetadata(""));
+            DependencyProperty.Register("Icon", typeof(string), typeof(Button), new PropertyMetadata(""));
 
         public Visibility IconVisibility
         {
@@ -20,7 +20,7 @@ namespace FactoryMonitor.UserControls.Controls.Button
             set { SetValue(IconVisibilityProperty, value); }
         }
         public static readonly DependencyProperty IconVisibilityProperty =
-            DependencyProperty.Register("IconVisibility", typeof(Visibility), typeof(SideMenu), new PropertyMetadata(Visibility.Visible));
+            DependencyProperty.Register("IconVisibility", typeof(Visibility), typeof(Button), new PropertyMetadata(Visibility.Hidden));
 
         public int IconSize
         {
@@ -28,7 +28,7 @@ namespace FactoryMonitor.UserControls.Controls.Button
             set { SetValue(IconSizeProperty, value); }
         }
         public static readonly DependencyProperty IconSizeProperty =
-            DependencyProperty.Register("IconSize", typeof(int), typeof(SideMenu), new PropertyMetadata(24));
+            DependencyProperty.Register("IconSize", typeof(int), typeof(Button), new PropertyMetadata(16));
 
         public FontFamily IconFontFamily
         {
@@ -48,7 +48,7 @@ namespace FactoryMonitor.UserControls.Controls.Button
             set { SetValue(IconForegroundProperty, value); }
         }
         public static readonly DependencyProperty IconForegroundProperty =
-            DependencyProperty.Register("IconForeground", typeof(SolidColorBrush), typeof(SideMenu), new PropertyMetadata(Brushes.Black));
+            DependencyProperty.Register("IconForeground", typeof(SolidColorBrush), typeof(Button), new PropertyMetadata(Brushes.Black));
 
         public Thickness IconMargin
         {
@@ -56,9 +56,7 @@ namespace FactoryMonitor.UserControls.Controls.Button
             set { SetValue(IconMarginProperty, value); }
         }
         public static readonly DependencyProperty IconMarginProperty =
-            DependencyProperty.Register("IconMargin", typeof(Thickness), typeof(SideMenu), new PropertyMetadata(new Thickness(0)));
-
-
+            DependencyProperty.Register("IconMargin", typeof(Thickness), typeof(Button), new PropertyMetadata(new Thickness(0)));
 
 
         public CornerRadius CornerRadius
@@ -66,11 +64,7 @@ namespace FactoryMonitor.UserControls.Controls.Button
             get { return (CornerRadius)GetValue(CornerRadiusProperty); }
             set { SetValue(CornerRadiusProperty, value); }
         }
-
-        // Using a DependencyProperty as the backing store for CornerRadius.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty CornerRadiusProperty =
-            DependencyProperty.Register("CornerRadius", typeof(CornerRadius), typeof(Button), new PropertyMetadata(5));
-
-
+            DependencyProperty.Register("CornerRadius", typeof(CornerRadius), typeof(Button), new PropertyMetadata(new CornerRadius(5)));
     }
 }
