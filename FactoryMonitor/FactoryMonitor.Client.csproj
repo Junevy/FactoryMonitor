@@ -25,4 +25,10 @@
     <ProjectReference Include="..\FactoryMonitor.UserControls\FactoryMonitor.UserControls.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="SimpleNavigation">
+      <HintPath>..\..\..\..\SimpleNavigation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

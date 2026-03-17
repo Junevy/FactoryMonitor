@@ -28,7 +28,7 @@ namespace FactoryMonitor.UserControls.Controls.Menu
             set => SetValue(IsSelectedProperty, value);
         }
         public static readonly DependencyProperty IsSelectedProperty =
-            DependencyProperty.Register(nameof(IsSelected), typeof(bool), typeof(MenuItem));
+            DependencyProperty.Register(nameof(IsSelected), typeof(bool), typeof(MenuItem), new PropertyMetadata(false));
 
     }
 }

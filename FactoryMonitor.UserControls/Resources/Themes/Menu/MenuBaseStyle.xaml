@@ -9,8 +9,6 @@
     <Style x:Key="MenuStyleBase" TargetType="{x:Type controls:MenuBase}">
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="FocusVisualStyle" Value="{DynamicResource DefaultControlFocusVisualStyle}" />
-        <!--<Setter Property="HorizontalContentAlignment" Value="Center"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>-->
 
         <!--  内容  -->
         <Setter Property="Template">
@@ -99,12 +97,13 @@
                                                                     FontSize="{Binding RelativeSource={RelativeSource AncestorType=controls:MenuBase}, Path=(helper:IconHelper.Size)}"
                                                                     Foreground="{Binding RelativeSource={RelativeSource AncestorType=controls:MenuBase}, Path=(helper:IconHelper.Foreground)}" />
 
-                                                                <ContentControl
+                                                                <TextBox
                                                                     Margin="{Binding RelativeSource={RelativeSource AncestorType=controls:MenuBase}, Path=(helper:TitleHelper.Margin)}"
                                                                     HorizontalAlignment="Center"
                                                                     VerticalAlignment="Center"
-                                                                    Content="{Binding Title}"
+                                                                    Text="{Binding Title}"
                                                                     Focusable="False"
+                                                                    IsEnabled="False"
                                                                     FontFamily="{Binding RelativeSource={RelativeSource AncestorType=controls:MenuBase}, Path=(helper:TitleHelper.FontFamily)}"
                                                                     FontSize="{Binding RelativeSource={RelativeSource AncestorType=controls:MenuBase}, Path=(helper:TitleHelper.Size)}"
                                                                     Foreground="{Binding RelativeSource={RelativeSource AncestorType=controls:MenuBase}, Path=(helper:TitleHelper.Foreground)}"
@@ -204,6 +203,8 @@
                                 </ControlTemplate>
                             </Button.Template>
                         </Button>
+
+
                     </StackPanel>
                 </DataTemplate>
             </Setter.Value>

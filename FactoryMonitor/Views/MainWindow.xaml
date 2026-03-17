@@ -7,6 +7,7 @@
     xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:local="clr-namespace:FactoryMonitor.Client"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sn="clr-namespace:SimpleNavigation;assembly=SimpleNavigation"
     xmlns:vm="clr-namespace:FactoryMonitor.Client.ViewModels"
     Title="MainWindow"
     Width="1200"
@@ -101,7 +102,7 @@
 
             <!--  content  -->
             <Grid Grid.Column="1">
-                <ContentControl x:Name="MainContentControl" />
+                <Frame x:Name="MainContentControl" sn:RegionService.RegionName="MainWindowRegion" />
             </Grid>
         </Grid>
 

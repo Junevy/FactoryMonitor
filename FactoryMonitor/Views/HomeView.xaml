@@ -14,17 +14,19 @@
     mc:Ignorable="d">
 
     <Grid>
-        <Grid.RowDefinitions>
+        <!--<Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <fm:TabMenu
             Grid.Row="0"
+            fm:IconHelper.Margin="5,0,5,0"
             fm:TitleHelper.Size="12"
             fm:TitleHelper.Visibility="Visible"
-            fm:IconHelper.Margin="5,0,5,0"
-            ItemsSource="{Binding Items}" />
+            CloseCommand="{Binding CloseTabCommand}"
+            ItemsSource="{Binding Items}"
+            NavigateCommand="{Binding NavigateCommand}" />
 
         <Border
             Grid.Row="1"
@@ -33,13 +35,14 @@
             BorderBrush="{DynamicResource SubBackground}"
             BorderThickness="1"
             CornerRadius="0,5,0,0">
-            <Grid>
-                <fm:Button
-                    Width="120"
-                    Height="30"
-                    Content="click me" />
-            </Grid>
-        </Border>
+            <ContentControl x:Name="HomeFrame" />
+
+        </Border>-->
+
+        <TextBlock
+            FontSize="50"
+            Foreground="Red"
+            Text="hello the navigation" />
 
     </Grid>
 </Page>

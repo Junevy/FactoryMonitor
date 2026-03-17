@@ -1,5 +1,4 @@
 ﻿using FactoryMonitor.Client.ViewModels;
-using Microsoft.Extensions.DependencyInjection;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -14,7 +13,10 @@ namespace FactoryMonitor.Client.Views
         {
             InitializeComponent();
             this.DataContext = vm;
-            this.MainContentControl.Content = App.Current.Provider.GetRequiredService<Frame>()!;
+
+            Frame frame = new();
+            //this.MainContentControl.Content = navigator.RegisterRoute(nameof(MainWindow));
+            //this.MainContentControl.Content = App.Current.Provider.GetRequiredService<ConcurrentDictionary<string, Frame>>()[nameof(MainWindow)];
         }
 
         private void Window_StateChanged(object sender, EventArgs e)

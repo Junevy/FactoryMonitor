@@ -12,9 +12,6 @@
         <Setter Property="ElementOrientation" Value="Horizontal" />
         <Setter Property="CloseButtonVisibility" Value="Visible" />
         <Setter Property="Background" Value="{DynamicResource MainBackground}" />
-        <Setter Property="ContentFontFamily" Value="Arial" />
-        <Setter Property="ContentSize" Value="12" />
-        <Setter Property="ContentVisibility" Value="Visible" />
         <Setter Property="IndicatorCornerRadius" Value="0" />
         <Setter Property="MenuItemBackground" Value="{DynamicResource MainBackground}" />
         <Setter Property="MenuItemHeight" Value="30" />

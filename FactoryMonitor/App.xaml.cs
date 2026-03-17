@@ -1,9 +1,8 @@
-﻿using FactoryMonitor.Client.Servies.Navigation;
-using FactoryMonitor.Client.ViewModels;
+﻿using FactoryMonitor.Client.ViewModels;
 using FactoryMonitor.Client.Views;
 using Microsoft.Extensions.DependencyInjection;
+using SimpleNavigation;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace FactoryMonitor.Client
 {
@@ -19,25 +18,35 @@ namespace FactoryMonitor.Client
         {
             base.OnStartup(e);
 
-            InitializeContainer();
+            Provider = InitializeContainer();
+
+            InitializeNavigation();
 
             MainWindow = Current.Provider.GetRequiredService<MainWindow>();
             MainWindow.Show();
         }
 
-        private void InitializeContainer()
+        private void InitializeNavigation()
+        {
+            var navigationService = Provider.GetRequiredService<INavigationService>();
+
+            //navigationService.RegisterRoute<HomeView>(Provider.GetRequiredService<HomeView>);
+            navigationService.RegisterRoute<HomeView>("HomeView", Provider.GetRequiredService<HomeView>);
+            //navigationService.RegisterRoute<HomeView>();
+        }
+
+        private IServiceProvider? InitializeContainer()
         {
             var container = new ServiceCollection();
 
-            container.AddSingleton<Frame>(e => new Frame() { NavigationUIVisibility = System.Windows.Navigation.NavigationUIVisibility.Hidden });
-            container.AddSingleton<INavigation, Servies.Navigation.NavigationService>();
+            container.AddSingleton<INavigationService, NavigationService>();
             container.AddSingleton<MainWindow>();
             container.AddSingleton<MainWindowViewModel>();
             container.AddSingleton<HomeView>();
             container.AddSingleton<HomeViewModel>();
-            //container.AddSingleton<SideMenuControl>();
+            container.AddSingleton<HomePage>();
 
-            Provider = container.BuildServiceProvider();
+            return container.BuildServiceProvider();
         }
 
         public T? LoadResource<T>(string? styleName = null) where T : class
@@ -45,7 +54,7 @@ namespace FactoryMonitor.Client
             var result = Application.Current.Resources[styleName] as T;
             if (result == null)
             {
-                throw new System.Exception($"Resource '{styleName}' not found or not of type {typeof(T).FullName}");
+                throw new Exception($"Resource '{styleName}' not found or not of type {typeof(T).FullName}");
             }
             return result;
         }

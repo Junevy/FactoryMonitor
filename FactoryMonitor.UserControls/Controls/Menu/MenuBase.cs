@@ -39,7 +39,6 @@ namespace FactoryMonitor.UserControls.Controls.Menu
         public static readonly DependencyProperty ElementOrientationProperty =
             DependencyProperty.Register("ElementOrientation", typeof(Orientation), typeof(MenuBase), new PropertyMetadata(Orientation.Vertical));
 
-
         #endregion
 
 
@@ -135,70 +134,6 @@ namespace FactoryMonitor.UserControls.Controls.Menu
         }
         public static readonly DependencyProperty IndicatorCornerRadiusProperty =
             DependencyProperty.Register("IndicatorCornerRadius", typeof(CornerRadius), typeof(MenuBase), new PropertyMetadata(new CornerRadius(5.0)));
-        #endregion
-
-
-        #region Content Region Properties
-        public string Content
-        {
-            get { return (string)GetValue(ContentProperty); }
-            set { SetValue(ContentProperty, value); }
-        }
-        public static readonly DependencyProperty ContentProperty =
-            DependencyProperty.Register("Content", typeof(string), typeof(MenuBase), new PropertyMetadata(null));
-
-        /// <summary>
-        /// The content text size of each menu item
-        /// </summary>
-        public int ContentSize
-        {
-            get { return (int)GetValue(ContentSizeProperty); }
-            set { SetValue(ContentSizeProperty, value); }
-        }
-        public static readonly DependencyProperty ContentSizeProperty =
-            DependencyProperty.Register("ContentSize", typeof(int), typeof(MenuBase), new PropertyMetadata(10));
-
-        /// <summary>
-        /// The content text <see cref="Brushes"/> of each menu item
-        /// </summary>
-        public SolidColorBrush ContentForeground
-        {
-            get { return (SolidColorBrush)GetValue(ContentForegroundProperty); }
-            set { SetValue(ContentForegroundProperty, value); }
-        }
-        public static readonly DependencyProperty ContentForegroundProperty =
-            DependencyProperty.Register("ContentForeground", typeof(SolidColorBrush), typeof(MenuBase), new PropertyMetadata(Brushes.Black));
-
-        /// <summary>
-        /// The content text <see cref="Visibility"/> of each menu item
-        /// </summary>
-        public Visibility ContentVisibility
-        {
-            get { return (Visibility)GetValue(ContentVisibilityProperty); }
-            set { SetValue(ContentVisibilityProperty, value); }
-        }
-        public static readonly DependencyProperty ContentVisibilityProperty =
-            DependencyProperty.Register("ContentVisibility", typeof(Visibility), typeof(MenuBase), new PropertyMetadata(Visibility.Collapsed));
-
-        /// <summary>
-        /// The content text type or style of each menu item, see <see cref="FontFamily"/>
-        /// </summary>
-        public FontFamily ContentFontFamily
-        {
-            get { return (FontFamily)GetValue(ContentFontFamilyProperty); }
-            set { SetValue(ContentFontFamilyProperty, value); }
-        }
-        public static readonly DependencyProperty ContentFontFamilyProperty =
-            DependencyProperty.Register("ContentFontFamily", typeof(FontFamily), typeof(MenuBase), new PropertyMetadata(new FontFamily("Consolas")));
-
-        public Thickness ContentMargin
-        {
-            get { return (Thickness)GetValue(ContentMarginProperty); }
-            set { SetValue(ContentMarginProperty, value); }
-        }
-        public static readonly DependencyProperty ContentMarginProperty =
-            DependencyProperty.Register("ContentMargin", typeof(Thickness), typeof(MenuBase), new PropertyMetadata(new Thickness(0)));
-
         #endregion
 
 

@@ -1,40 +1,41 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using FactoryMonitor.Client.Servies.Navigation;
 using FactoryMonitor.Client.Views;
 using FactoryMonitor.UserControls.Controls.Menu;
+using SimpleNavigation;
 using System.Collections.ObjectModel;
+using System.Windows;
 
 namespace FactoryMonitor.Client.ViewModels
 {
-    public partial class MainWindowViewModel : ObservableObject
+    public partial class MainWindowViewModel : ObservableObject, INavigationAware
     {
         public ObservableCollection<MenuItem> Items { get; set; } = [];
-        private readonly INavigation navigator;
+        private readonly INavigationService navigationService;
 
-        [ObservableProperty]
-        private MenuItem selectedItem;
+        //[ObservableProperty]
+        //private MenuItem selectedItem;
 
-        public MainWindowViewModel(INavigation navigator)
+        public MainWindowViewModel(INavigationService navigationService)
         {
-            Items.Add(new MenuItem() { Title = "Home", Icon = "\ue65d", NavigationKey = "HomePage", IsSelected = true });
+            Items.Add(new MenuItem() { Title = "Home", Icon = "\ue65d", NavigationKey = "Home", IsSelected = true });
             Items.Add(new MenuItem() { Title = "Trend", Icon = "\ue87b", NavigationKey = "TrendPage" });
             Items.Add(new MenuItem() { Title = "Settings", Icon = "\ue66b", NavigationKey = "SettingsPage" });
             Items.Add(new MenuItem() { Title = "User", Icon = "\ue7b2", NavigationKey = "UserPage" });
-            this.navigator = navigator;
+            this.navigationService = navigationService;
         }
 
         [RelayCommand]
         private void Navigate(MenuItem item)
         {
-            if (item == null)
-                return;
-            var navigationKey = item.NavigationKey;
+            var key = item.NavigationKey;
 
-            switch (navigationKey)
+            if (key == null) return;
+
+            switch (key)
             {
-                case "HomePage":
-                    navigator.NavigateTo<HomeView>();
+                case "Home":
+                    navigationService.Navigate("MainWindowRegion", "HomeView", new NavigationParameter(2,2,"hello",new MenuItem()));
                     break;
                 default:
                     break;
@@ -47,5 +48,19 @@ namespace FactoryMonitor.Client.ViewModels
 
         }
 
+        public void OnNavigating(NavigationParameter? parameters)
+        {
+            if (parameters != null)
+            {
+                // 处理导航参数
+                // 例如：int id = parameters.Get<int>("id");
+                var test = parameters.Get<string>("1");
+                MessageBox.Show(test);
+            }
+        }
+
+        public void OnNavigated(NavigationParameter? parameters)
+        {
+        }
     }
 }

@@ -12,7 +12,10 @@ namespace FactoryMonitor.Client.Views
         {
             InitializeComponent();
             this.DataContext = vm;
-            
+            Frame frame = new();
+            //this.HomeFrame.Content = navigator.RegisterRoute(nameof(HomeView));
+            //this.HomeFrame.Content = App.Current.Provider.GetRequiredService<ConcurrentDictionary<string, Frame>>()[nameof(HomeView)];
+
         }
     }
 }

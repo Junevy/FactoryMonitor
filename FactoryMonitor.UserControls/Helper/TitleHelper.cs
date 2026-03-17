@@ -118,7 +118,7 @@ namespace FactoryMonitor.UserControls.Helper
         }
         public static readonly DependencyProperty FontFamilyProperty =
             DependencyProperty.RegisterAttached("FontFamily", typeof(FontFamily), typeof(TitleHelper), 
-                new PropertyMetadata(new FontFamily("Consolas")));
+                new PropertyMetadata(new FontFamily("Arial")));
 
 
     }
