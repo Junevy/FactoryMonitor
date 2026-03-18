@@ -5,7 +5,7 @@ using System.Windows.Media;
 
 namespace FactoryMonitor.UserControls.Controls.Menu
 {
-    public class MenuBase : System.Windows.Controls.ItemsControl
+    public class MenuBase : ItemsControl
     {
         #region primary
 
@@ -202,5 +202,15 @@ namespace FactoryMonitor.UserControls.Controls.Menu
         }
         public static readonly DependencyProperty CloseButtonVisibilityProperty =
             DependencyProperty.Register("CloseButtonVisibility", typeof(Visibility), typeof(MenuBase), new PropertyMetadata(Visibility.Hidden));
+
+
+        private void OnPreviewMouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            if (sender is ScrollViewer sv)
+            {
+                sv.ScrollToHorizontalOffset(sv.HorizontalOffset - e.Delta / 3.0);
+                e.Handled = true;
+            }
+        }
     }
 }

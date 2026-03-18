@@ -4,9 +4,7 @@
     xmlns:control="clr-namespace:FactoryMonitor.UserControls.Controls.Button"
     xmlns:helper="clr-namespace:FactoryMonitor.UserControls.Helper">
 
-
-
-    <!--<Style TargetType="{x:Type control:Button}">
+    <Style TargetType="{x:Type control:Button}">
 
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -25,20 +23,37 @@
                         Padding="{TemplateBinding Padding}"
                         HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
                         VerticalAlignment="{TemplateBinding VerticalAlignment}"
-                        Background="{DynamicResource ButtonBackground}"
-                        BorderBrush="{DynamicResource BorderForeground}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding Foreground}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{Binding RelativeSource={RelativeSource AncestorType=control:Button}, Path=CornerRadius}">
 
-                        <ContentPresenter
-                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                            Content="{TemplateBinding Content}"
-                            ContentTemplate="{TemplateBinding ContentTemplate}"
-                            RecognizesAccessKey="True"
-                            TextElement.FontFamily="{TemplateBinding FontFamily}"
-                            TextElement.FontSize="{TemplateBinding FontSize}"
-                            TextElement.Foreground="{TemplateBinding Foreground}" />
+                        <Grid HorizontalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+                            <ContentControl
+                                Grid.Column="0"
+                                Margin="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.Margin)}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.Icon)}"
+                                FontFamily="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.FontFamily)}"
+                                FontSize="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.Size)}"
+                                Foreground="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.Foreground)}" />
+
+                            <ContentPresenter
+                                Grid.Column="1"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Content="{TemplateBinding Content}"
+                                ContentTemplate="{TemplateBinding ContentTemplate}"
+                                RecognizesAccessKey="True"
+                                TextElement.FontFamily="{TemplateBinding FontFamily}"
+                                TextElement.FontSize="{TemplateBinding FontSize}"
+                                TextElement.Foreground="{TemplateBinding Foreground}" />
+                        </Grid>
                     </Border>
 
                     <ControlTemplate.Triggers>
@@ -52,13 +67,12 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>-->
+    </Style>
 
-    <Style TargetType="{x:Type control:Button}">
+    <Style x:Key="PrimaryButton" TargetType="{x:Type control:Button}">
 
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
-        <Setter Property="IconVisibility" Value="Visible" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="FocusVisualStyle" Value="{DynamicResource DefaultControlFocusVisualStyle}" />
 
@@ -104,6 +118,54 @@
                                 TextElement.FontFamily="{TemplateBinding FontFamily}"
                                 TextElement.FontSize="{TemplateBinding FontSize}"
                                 TextElement.Foreground="{TemplateBinding Foreground}" />
+                        </Grid>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="ButtonBackgroumd" Property="Background" Value="{DynamicResource MainBackground}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="ButtonBackgroumd" Property="Background" Value="{DynamicResource PressedBackground}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="IconCircleButton" TargetType="{x:Type control:Button}">
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="FocusVisualStyle" Value="{DynamicResource DefaultControlFocusVisualStyle}" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type control:Button}">
+                    <Border
+                        x:Name="ButtonBackgroumd"
+                        Width="{TemplateBinding Width}"
+                        Height="{TemplateBinding Height}"
+                        MinWidth="{TemplateBinding MinWidth}"
+                        MinHeight="{TemplateBinding MinHeight}"
+                        Padding="{TemplateBinding Padding}"
+                        HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                        VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding Foreground}"
+                        BorderThickness="2"
+                        CornerRadius="90">
+
+                        <Grid HorizontalAlignment="Center">
+                            <ContentControl
+                                Grid.Column="0"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.Icon)}"
+                                FontFamily="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.FontFamily)}"
+                                FontSize="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.Size)}"
+                                Foreground="{Binding RelativeSource={RelativeSource AncestorType=Border}, Path=BorderBrush}" />
                         </Grid>
                     </Border>
 

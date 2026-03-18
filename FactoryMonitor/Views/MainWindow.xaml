@@ -28,7 +28,7 @@
         <Grid.RowDefinitions>
             <RowDefinition MaxHeight="40" />
             <RowDefinition Height="*" />
-            <RowDefinition MaxHeight="30" />
+            <RowDefinition MaxHeight="25" />
         </Grid.RowDefinitions>
 
         <!--  control bar  -->
@@ -109,7 +109,7 @@
         <!--  foot bar  -->
         <Grid Grid.Row="2">
             <Border
-                Background="{StaticResource SelectedForeground}"
+                Background="{StaticResource AppThemeColor}"
                 BorderBrush="{StaticResource BorderForeground}"
                 BorderThickness="0,1,0,0" />
         </Grid>

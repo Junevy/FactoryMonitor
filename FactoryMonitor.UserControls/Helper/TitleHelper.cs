@@ -18,8 +18,6 @@ namespace FactoryMonitor.UserControls.Helper
             DependencyProperty.RegisterAttached("Title", typeof(object), typeof(TitleHelper), new PropertyMetadata(0));
 
 
-
-
         public static int GetWidth(DependencyObject obj)
         {
             return (int)obj.GetValue(WidthProperty);
@@ -31,7 +29,6 @@ namespace FactoryMonitor.UserControls.Helper
         }
         public static readonly DependencyProperty WidthProperty =
             DependencyProperty.RegisterAttached("Width", typeof(int), typeof(TitleHelper), new PropertyMetadata(20));
-
 
 
         public static int GetHeight(DependencyObject obj)

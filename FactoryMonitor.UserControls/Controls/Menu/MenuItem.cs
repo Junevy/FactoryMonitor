@@ -5,6 +5,12 @@ namespace FactoryMonitor.UserControls.Controls.Menu
     public class MenuItem : DependencyObject
     {
         public string NavigationKey { get; set; }   // 关键：不依赖 Page
+        public Guid Id { get; }
+
+        public MenuItem()
+        {
+            Id = new Guid();
+        }
 
         public string Icon
         {

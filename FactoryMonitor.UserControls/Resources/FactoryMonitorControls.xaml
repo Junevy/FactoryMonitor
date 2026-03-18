@@ -13,9 +13,9 @@
         <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Resources/Themes/Menu/SideMenuStyle.xaml" />
         <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Resources/Themes/Menu/TabMenuStyle.xaml" />
         <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Resources/Images/ImageSources.xaml" />
-        <!--<ResourceDictionary>
-            <Image x:Key="automation" Source="/FactoryMonitor.UserControls;component/Resources/Images/automation.png" />
-        </ResourceDictionary>-->
+
+        <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Resources/Themes/Base/BaseStyle.xaml" />
+
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

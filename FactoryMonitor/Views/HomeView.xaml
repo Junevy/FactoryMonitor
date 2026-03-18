@@ -13,8 +13,8 @@
     d:DesignWidth="800"
     mc:Ignorable="d">
 
-    <Grid>
-        <!--<Grid.RowDefinitions>
+    <Grid Background="{DynamicResource SubBackground}">
+        <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
@@ -30,19 +30,13 @@
 
         <Border
             Grid.Row="1"
-            Margin="0,-8,0,0"
             Background="{DynamicResource SubBackground}"
             BorderBrush="{DynamicResource SubBackground}"
             BorderThickness="1"
-            CornerRadius="0,5,0,0">
+            CornerRadius="{StaticResource CornerRadius}">
             <ContentControl x:Name="HomeFrame" />
 
-        </Border>-->
-
-        <TextBlock
-            FontSize="50"
-            Foreground="Red"
-            Text="hello the navigation" />
+        </Border>
 
     </Grid>
 </Page>

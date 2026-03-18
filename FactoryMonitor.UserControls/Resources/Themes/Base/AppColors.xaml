@@ -7,20 +7,29 @@
 
     <!--  main color  -->
     <SolidColorBrush x:Key="MainBackground" Color="White" />
-    <SolidColorBrush x:Key="SelectedBackground" Color="#dcdcdc" />
-    <SolidColorBrush x:Key="SelectedForeground" Color="#A004BF" />
     <SolidColorBrush x:Key="BorderForeground" Color="#d3d3d3" />
-    <SolidColorBrush x:Key="PressedBackground" Color="#f5f5f5" />
+    <SolidColorBrush x:Key="AppThemeColor" Color="#7c167d" />
+
 
     <!--  sub color  -->
     <SolidColorBrush x:Key="SubBackground" Color="#f5f5f5" />
+
+
+    <!--  text color  -->
+    <SolidColorBrush x:Key="TextForeground" Color="#000000" />
     <SolidColorBrush x:Key="SubTextForeground" Color="#696969" />
+
+
+    <!--  click color  -->
+    <SolidColorBrush x:Key="PressedBackground" Color="#f5f5f5" />
+    <SolidColorBrush x:Key="SelectedBackground" Color="#dcdcdc" />
+    <SolidColorBrush x:Key="SelectedForeground" Color="#A004BF" />
+    <SolidColorBrush x:Key="ButtonPressedBackground" Color="#dcdcdc" />
+
 
 
     <!--  button  -->
     <SolidColorBrush x:Key="ButtonBackground" Color="#f5f5f5" />
-    <SolidColorBrush x:Key="ButtonPressedBackground" Color="#dcdcdc" />
-    <!--<SolidColorBrush x:Key="But"-->
 
 
 

@@ -30,9 +30,9 @@ namespace FactoryMonitor.Client
         {
             var navigationService = Provider.GetRequiredService<INavigationService>();
 
-            //navigationService.RegisterRoute<HomeView>(Provider.GetRequiredService<HomeView>);
             navigationService.RegisterRoute<HomeView>("HomeView", Provider.GetRequiredService<HomeView>);
-            //navigationService.RegisterRoute<HomeView>();
+            navigationService.RegisterRoute<HomePage>("HomePage", Provider.GetRequiredService<HomePage>);
+
         }
 
         private IServiceProvider? InitializeContainer()

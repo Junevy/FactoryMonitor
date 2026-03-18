@@ -1,6 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using FactoryMonitor.Client.Views;
 using FactoryMonitor.UserControls.Controls.Menu;
 using SimpleNavigation;
 using System.Collections.ObjectModel;
@@ -35,7 +34,7 @@ namespace FactoryMonitor.Client.ViewModels
             switch (key)
             {
                 case "Home":
-                    navigationService.Navigate("MainWindowRegion", "HomeView", new NavigationParameter(2,2,"hello",new MenuItem()));
+                    navigationService.Navigate("MainWindowRegion", "HomeView");
                     break;
                 default:
                     break;
