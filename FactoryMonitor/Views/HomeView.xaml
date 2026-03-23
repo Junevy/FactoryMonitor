@@ -6,6 +6,7 @@
     xmlns:fm="http://junevy.github.com.fmcontrols"
     xmlns:local="clr-namespace:FactoryMonitor.Client.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:sn="clr-namespace:SimpleNavigation;assembly=SimpleNavigation"
     xmlns:vm="clr-namespace:FactoryMonitor.Client.ViewModels"
     Title="HomeView"
     d:DataContext="{d:DesignInstance Type=vm:HomeViewModel}"
@@ -34,8 +35,7 @@
             BorderBrush="{DynamicResource SubBackground}"
             BorderThickness="1"
             CornerRadius="{StaticResource CornerRadius}">
-            <ContentControl x:Name="HomeFrame" />
-
+            <Frame x:Name="MainContentControl" sn:RegionService.RegionName="HomeViewRegion" />
         </Border>
 
     </Grid>

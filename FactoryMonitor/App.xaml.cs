@@ -1,4 +1,5 @@
-﻿using FactoryMonitor.Client.ViewModels;
+﻿using Communication.ModBus.ModBusRTU;
+using FactoryMonitor.Client.ViewModels;
 using FactoryMonitor.Client.Views;
 using Microsoft.Extensions.DependencyInjection;
 using SimpleNavigation;
@@ -44,7 +45,12 @@ namespace FactoryMonitor.Client
             container.AddSingleton<MainWindowViewModel>();
             container.AddSingleton<HomeView>();
             container.AddSingleton<HomeViewModel>();
-            container.AddSingleton<HomePage>();
+
+            container.AddTransient<HomePage>();
+            container.AddTransient<HomePageViewModel>();
+
+            container.AddSingleton<ModBusRTUMaster>();
+            container.AddTransient<ModBusRTUConfig>();
 
             return container.BuildServiceProvider();
         }

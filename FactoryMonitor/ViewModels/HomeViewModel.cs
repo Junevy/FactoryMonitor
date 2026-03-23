@@ -9,27 +9,19 @@ namespace FactoryMonitor.Client.ViewModels
 {
     public partial class HomeViewModel : ObservableObject, INavigationAware
     {
+
+        private readonly INavigationService navigationService;
         // 侧边栏菜单项集合
         public ObservableCollection<MenuItem> Items { get; set; } = [];
 
-        public HomeViewModel()
+        public HomeViewModel(INavigationService navigationService)
         {
-
             Items.Add(new MenuItem() { Title = "Home", Icon = "\ue65d", NavigationKey = "HomePage", IsSelected = true });
             Items.Add(new MenuItem() { Title = "Trend", Icon = "\ue87b", NavigationKey = "TrendPage" });
             Items.Add(new MenuItem() { Title = "Settings", Icon = "\ue66b", NavigationKey = "SettingsPage" });
             Items.Add(new MenuItem() { Title = "User", Icon = "\ue7b2", NavigationKey = "UserPage" });
-            Items.Add(new MenuItem() { Title = "User", Icon = "\ue7b2", NavigationKey = "UserPage" });
-            Items.Add(new MenuItem() { Title = "User", Icon = "\ue7b2", NavigationKey = "UserPage" });
-            Items.Add(new MenuItem() { Title = "User", Icon = "\ue7b2", NavigationKey = "UserPage" });
-            Items.Add(new MenuItem() { Title = "User", Icon = "\ue7b2", NavigationKey = "UserPage" });
-            Items.Add(new MenuItem() { Title = "User", Icon = "\ue7b2", NavigationKey = "UserPage" });
-            Items.Add(new MenuItem() { Title = "User", Icon = "\ue7b2", NavigationKey = "UserPage" });
-            Items.Add(new MenuItem() { Title = "User", Icon = "\ue7b2", NavigationKey = "UserPage" });
-            Items.Add(new MenuItem() { Title = "User", Icon = "\ue7b2", NavigationKey = "UserPage" });
-            Items.Add(new MenuItem() { Title = "User", Icon = "\ue7b2", NavigationKey = "UserPage" });
-            Items.Add(new MenuItem() { Title = "User", Icon = "\ue7b2", NavigationKey = "UserPage" });
-            Items.Add(new MenuItem() { Title = "User", Icon = "\ue7b2", NavigationKey = "UserPage" });
+
+            this.navigationService = navigationService;
         }
 
         [RelayCommand]
@@ -46,6 +38,20 @@ namespace FactoryMonitor.Client.ViewModels
         [RelayCommand]
         private void Navigate(MenuItem item)
         {
+            var key = item.NavigationKey;
+
+            if (key == null) return;
+
+            //if (item.IsSelected) return;
+
+            switch (key)
+            {
+                case "HomePage":
+                    navigationService.Navigate("HomeViewRegion", "HomePage");
+                    break;
+                default:
+                    break;
+            }
         }
 
         public void OnNavigating(NavigationParameter? parameters)

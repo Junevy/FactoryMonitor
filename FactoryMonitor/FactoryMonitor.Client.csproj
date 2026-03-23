@@ -1,34 +1,38 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-	  <LangVersion>13</LangVersion>
-    <UseWPF>true</UseWPF>
-    <PlatformTarget>AnyCPU</PlatformTarget>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<LangVersion>13</LangVersion>
+		<UseWPF>true</UseWPF>
+		<PlatformTarget>AnyCPU</PlatformTarget>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+	<ItemGroup>
+		<Folder Include="Models\" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="CommunityToolkit.Mvvm" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
-    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Mvvm" />
+		<PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+		<PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" />
+		<PackageReference Include="System.IO.Ports" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\FactoryMonitor.Common\FactoryMonitor.Common.csproj" />
-    <ProjectReference Include="..\FactoryMonitor.UserControls\FactoryMonitor.UserControls.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\FactoryMonitor.Common\FactoryMonitor.Common.csproj" />
+		<ProjectReference Include="..\FactoryMonitor.UserControls\FactoryMonitor.UserControls.csproj" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="SimpleNavigation">
-      <HintPath>..\..\..\..\SimpleNavigation.dll</HintPath>
-    </Reference>
-  </ItemGroup>
+	<ItemGroup>
+		<Reference Include="Communication.ModBus">
+			<HintPath>..\..\..\..\Communication.ModBus.dll</HintPath>
+		</Reference>
+		<Reference Include="SimpleNavigation">
+			<HintPath>..\..\..\..\SimpleNavigation.dll</HintPath>
+		</Reference>
+	</ItemGroup>
 
 </Project>

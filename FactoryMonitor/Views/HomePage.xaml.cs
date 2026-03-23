@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using FactoryMonitor.Client.ViewModels;
+using System.Windows.Controls;
 
 namespace FactoryMonitor.Client.Views
 {
@@ -7,9 +8,10 @@ namespace FactoryMonitor.Client.Views
     /// </summary>
     public partial class HomePage : Page
     {
-        public HomePage()
+        public HomePage(HomePageViewModel vm)
         {
             InitializeComponent();
+            this.DataContext = vm;
         }
     }
 }
