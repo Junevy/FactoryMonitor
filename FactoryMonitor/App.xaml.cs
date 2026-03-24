@@ -2,7 +2,8 @@
 using FactoryMonitor.Client.ViewModels;
 using FactoryMonitor.Client.Views;
 using Microsoft.Extensions.DependencyInjection;
-using SimpleNavigation;
+using SimpleNavigation.Interface;
+using SimpleNavigation.Services;
 using System.Windows;
 
 namespace FactoryMonitor.Client

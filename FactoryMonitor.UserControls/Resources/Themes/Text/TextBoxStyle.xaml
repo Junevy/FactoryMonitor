@@ -1,0 +1,129 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:button="clr-namespace:FactoryMonitor.UserControls.Controls.Button"
+    xmlns:controls="clr-namespace:FactoryMonitor.UserControls.Controls.Text"
+    xmlns:helper="clr-namespace:FactoryMonitor.UserControls.Helper">
+
+    <!--  defualt ———— discard  -->
+    <Style x:Key="DefaultTextBox" TargetType="{x:Type TextBox}">
+        <Setter Property="FocusVisualStyle" Value="{DynamicResource DefaultControlFocusVisualStyle}" />
+        <Setter Property="Foreground" Value="{DynamicResource TextForeground}" />
+        <Setter Property="Background" Value="{DynamicResource PressedBackground}" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="Margin" Value="5" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        BorderBrush="{DynamicResource BorderForeground}"
+                        BorderThickness="1,1,1,0"
+                        CornerRadius="5">
+                        <Border
+                            x:Name="BoxInnerBorder"
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Background="{DynamicResource PressedBackground}"
+                            BorderBrush="{DynamicResource AppThemeColor}"
+                            BorderThickness="0,0,0,3"
+                            CornerRadius="5">
+                            <TextBox
+                                Margin="5"
+                                Background="{Binding ElementName=BoxInnerBorder, Path=Background}"
+                                BorderThickness="0"
+                                FontSize="{Binding RelativeSource={RelativeSource AncestorType=controls:TextBox}, Path=FontSize}"
+                                Text="{Binding RelativeSource={RelativeSource AncestorType=controls:TextBox}, Path=Text}" />
+                        </Border>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <ControlTemplate x:Key="DefaultTextBoxTemplate" TargetType="{x:Type controls:TextBox}">
+        <Border
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            BorderBrush="{DynamicResource BorderForeground}"
+            BorderThickness="1,1,1,0"
+            CornerRadius="5">
+            <Border
+                x:Name="BoxInnerBorder"
+                HorizontalAlignment="Stretch"
+                VerticalAlignment="Stretch"
+                Background="{DynamicResource PressedBackground}"
+                BorderBrush="{DynamicResource DefaultIndicatorColor}"
+                BorderThickness="0,0,0,3"
+                CornerRadius="5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <ContentControl
+                        Grid.Column="0"
+                        Margin="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.Margin)}"
+                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                        VerticalAlignment="Center"
+                        Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.Icon)}"
+                        FontFamily="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.FontFamily)}"
+                        FontSize="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.Size)}"
+                        Foreground="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.Foreground)}" />
+
+                    <ScrollViewer
+                        x:Name="PART_ContentHost"
+                        Grid.Column="1"
+                        Margin="5"
+                        VerticalAlignment="Center" />
+
+                    <button:Button
+                        Grid.Column="2"
+                        Margin="5"
+                        VerticalAlignment="Stretch"
+                        Content="&#xe639;"
+                        FontFamily="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.FontFamily)}"
+                        FontSize="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.Size)}"
+                        Foreground="{TemplateBinding Foreground}"
+                        Template="{DynamicResource TransparentButton}"
+                        Visibility="{Binding RelativeSource={RelativeSource AncestorType=controls:TextBox}, Path=CloseButton}" />
+                </Grid>
+            </Border>
+        </Border>
+
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                <Setter TargetName="BoxInnerBorder" Property="Background" Value="White" />
+                <Setter TargetName="BoxInnerBorder" Property="BorderBrush" Value="{DynamicResource AppThemeColor}" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <Style x:Key="TextBoxWithClearButton" TargetType="{x:Type controls:TextBox}">
+        <Setter Property="FocusVisualStyle" Value="{DynamicResource DefaultControlFocusVisualStyle}" />
+        <Setter Property="Foreground" Value="{DynamicResource TextForeground}" />
+        <Setter Property="Background" Value="{DynamicResource PressedBackground}" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="Margin" Value="5" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border Background="Red" />
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style.Triggers>
+            <Trigger Property="ShowClear" Value="False">
+                <Setter Property="Template" Value="{StaticResource DefaultTextBoxTemplate}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style BasedOn="{StaticResource TextBoxWithClearButton}" TargetType="{x:Type controls:TextBox}" />
+</ResourceDictionary>

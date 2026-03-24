@@ -7,6 +7,8 @@
         <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Animations/Button.xaml" />
         <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Resources/Font/Fonts.xaml" />
 
+        <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Resources/Themes/Text/TextBoxStyle.xaml" />
+
         <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Resources/Themes/Bar/ControlBarStyle.xaml" />
         <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Resources/Themes/Button/ButtonStyle.xaml" />
         <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Resources/Themes/Menu/MenuBaseStyle.xaml" />
@@ -15,6 +17,10 @@
         <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Resources/Images/ImageSources.xaml" />
 
         <ResourceDictionary Source="/FactoryMonitor.UserControls;component/Resources/Themes/Base/BaseStyle.xaml" />
+
+
+
+        <!--<ResourceDictionary Source="DefaultTextBox"/>-->
 
     </ResourceDictionary.MergedDictionaries>
 

@@ -1,7 +1,10 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using FactoryMonitor.Client.Views;
 using FactoryMonitor.UserControls.Controls.Menu;
 using SimpleNavigation;
+using SimpleNavigation.Common;
+using SimpleNavigation.Interface;
 using System.Collections.ObjectModel;
 using System.Windows;
 
@@ -38,7 +41,16 @@ namespace FactoryMonitor.Client.ViewModels
         [RelayCommand]
         private void Navigate(MenuItem item)
         {
+            //var region = navigationService.regis
+            ////navigationService.ge
+            //var region = navigationService.GetRegion("HomeViewRegion");
+
+            //var control = region.Content as HomePage;
+
+            //control.DataContext
             var key = item.NavigationKey;
+
+            //if (control?.NavigationKey == key) return;
 
             if (key == null) return;
 
@@ -56,13 +68,10 @@ namespace FactoryMonitor.Client.ViewModels
 
         public void OnNavigating(NavigationParameter? parameters)
         {
-            if (parameters != null)
-            {
-                // 处理导航参数
-                // 例如：int id = parameters.Get<int>("id");
-                var test = parameters.Get<string>("1");
-                MessageBox.Show(test);
-            }
+            // 处理导航参数
+            // 例如：int id = parameters.Get<int>("id");
+            var test = parameters.Get<int>("1");
+            MessageBox.Show(test + "");
         }
 
         public void OnNavigated(NavigationParameter? parameters)
@@ -71,8 +80,8 @@ namespace FactoryMonitor.Client.ViewModels
             {
                 // 处理导航参数
                 // 例如：int id = parameters.Get<int>("id");
-                var test = parameters.Get<int>("1");
-                MessageBox.Show(test + "");
+                var test = parameters.Get<string>("1");
+                MessageBox.Show(test);
             }
         }
     }

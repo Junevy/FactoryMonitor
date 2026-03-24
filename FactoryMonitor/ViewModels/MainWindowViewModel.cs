@@ -1,7 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using FactoryMonitor.UserControls.Controls.Menu;
-using SimpleNavigation;
+using SimpleNavigation.Common;
+using SimpleNavigation.Interface;
 using System.Collections.ObjectModel;
 using System.Windows;
 
@@ -60,6 +61,7 @@ namespace FactoryMonitor.Client.ViewModels
 
         public void OnNavigated(NavigationParameter? parameters)
         {
+            throw new NotImplementedException();
         }
     }
 }

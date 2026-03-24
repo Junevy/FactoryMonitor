@@ -7,7 +7,7 @@
     xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
     xmlns:local="clr-namespace:FactoryMonitor.Client"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:sn="clr-namespace:SimpleNavigation;assembly=SimpleNavigation"
+    xmlns:sn="clr-namespace:SimpleNavigation.Services;assembly=SimpleNavigation"
     xmlns:vm="clr-namespace:FactoryMonitor.Client.ViewModels"
     Title="MainWindow"
     Width="1200"

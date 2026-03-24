@@ -31,7 +31,7 @@
 			<HintPath>..\..\..\..\Communication.ModBus.dll</HintPath>
 		</Reference>
 		<Reference Include="SimpleNavigation">
-			<HintPath>..\..\..\..\SimpleNavigation.dll</HintPath>
+		  <HintPath>..\..\..\..\SimpleNavigation.dll</HintPath>
 		</Reference>
 	</ItemGroup>
 

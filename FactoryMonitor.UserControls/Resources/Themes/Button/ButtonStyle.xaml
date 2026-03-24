@@ -24,13 +24,13 @@
                         HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
                         VerticalAlignment="{TemplateBinding VerticalAlignment}"
                         Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding Foreground}"
+                        BorderBrush="{DynamicResource BorderForeground}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         CornerRadius="{Binding RelativeSource={RelativeSource AncestorType=control:Button}, Path=CornerRadius}">
 
                         <Grid HorizontalAlignment="Center">
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="auto" />
+                                <ColumnDefinition />
                                 <ColumnDefinition />
                             </Grid.ColumnDefinitions>
                             <ContentControl
@@ -139,6 +139,7 @@
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
         <Setter Property="FocusVisualStyle" Value="{DynamicResource DefaultControlFocusVisualStyle}" />
+        <Setter Property="Background" Value="{DynamicResource ButtonBackground}" />
 
         <Setter Property="Template">
             <Setter.Value>
@@ -181,4 +182,27 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+
+    <ControlTemplate x:Key="TransparentButton" TargetType="{x:Type control:Button}">
+        <Border
+            x:Name="CloseButtonBg"
+            Background="Transparent"
+            CornerRadius="5">
+            <ContentControl
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Content="{TemplateBinding Content}" />
+        </Border>
+
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="CloseButtonBg" Property="Background" Value="LightGray" />
+            </Trigger>
+            <Trigger Property="IsMouseCaptured" Value="True">
+                <Setter TargetName="CloseButtonBg" Property="Background" Value="Tomato" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
 </ResourceDictionary>
