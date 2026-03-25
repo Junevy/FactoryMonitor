@@ -18,6 +18,9 @@
 		<PackageReference Include="CommunityToolkit.Mvvm" />
 		<PackageReference Include="Microsoft.Extensions.DependencyInjection" />
 		<PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" />
+		<PackageReference Include="Serilog" />
+		<PackageReference Include="Serilog.Enrichers.Thread" />
+		<PackageReference Include="Serilog.Sinks.File" />
 		<PackageReference Include="System.IO.Ports" />
 	</ItemGroup>
 
@@ -28,7 +31,7 @@
 
 	<ItemGroup>
 		<Reference Include="Communication.ModBus">
-			<HintPath>..\..\..\..\Communication.ModBus.dll</HintPath>
+		  <HintPath>..\..\..\..\Communication.ModBus.dll</HintPath>
 		</Reference>
 		<Reference Include="SimpleNavigation">
 		  <HintPath>..\..\..\..\SimpleNavigation.dll</HintPath>

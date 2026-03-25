@@ -21,7 +21,5 @@ namespace FactoryMonitor.UserControls.Controls.Text
         public static readonly DependencyProperty CloseButtonProperty =
             DependencyProperty.Register("CloseButton", typeof(Visibility), typeof(TextBox), new PropertyMetadata(Visibility.Collapsed));
 
-
-
     }
 }

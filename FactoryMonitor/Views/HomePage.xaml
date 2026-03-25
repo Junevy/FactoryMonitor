@@ -30,38 +30,41 @@
         <TextBox Width="120" Text="{Binding Config.Parity}" />
 
         <TextBlock Text="Stop Bit" />
-        <TextBox
-            Width="120"
-            FontSize="22"
-            Text="{Binding Config.StopBits}" />
+        <TextBox Width="120" Text="{Binding Config.StopBits}" />
 
         <Button
             Width="120"
             Command="{Binding ConnectCommand}"
             Content="connect" />
 
-        <fm:TextBox
-            Width="333"
-            Margin="20"
-            fm:IconHelper.Icon="&#xe639;"
-            fm:IconHelper.Margin="10,10,0,10"
-            CloseButton="Visible"
+
+
+
+        <TextBlock Text="Slave ID" />
+        <TextBox Width="120" Text="{Binding Cmd.SlaveId}" />
+
+        <TextBlock Text="Function Code" />
+        <TextBox Width="120" Text="{Binding Cmd.FunctionCode}" />
+
+        <TextBlock Text="Start" />
+        <TextBox Width="120" Text="{Binding Cmd.Start}" />
+
+        <TextBlock Text="Count" />
+        <TextBox Width="120" Text="{Binding Cmd.Count}" />
+
+        <Button
+            Width="120"
+            Command="{Binding ReadCoilsCommand}"
+            Content="Read Coils" />
+
+
+        <!--<fm:TextBox
+            Width="300"
+            Height="40"
+            Margin="10"
             FontSize="14"
             ShowClear="False"
-            Text="123" />
-
-        <fm:Button
-            Width="120"
-            Height="30"
-            fm:IconHelper.Icon="&#xe639;"
-            Content="click me" />
-
-        <!--<TextBox
-            Width="120"
-            Height="20"
-            FontSize="44"
             Text="123" />-->
-
 
     </StackPanel>
 </Page>

@@ -1,0 +1,14 @@
+﻿namespace FactoryMonitor.Client.Temp
+{
+    public class MbCommand
+    {
+        public ushort SlaveId { get; set; } = 1;
+
+        public ushort FunctionCode { get; set; } = 0x01;
+
+        public ushort Start { get; set; } = 0x00;
+
+        public ushort Count { get; set; } = 0x01;
+
+    }
+}

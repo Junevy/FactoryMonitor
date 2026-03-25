@@ -1,7 +1,11 @@
-﻿using Communication.ModBus.ModBusRTU;
+﻿using Communication.ModBus.Common;
+using Communication.ModBus.ModBusRTU;
+using Communication.ModBus.Utils;
+using FactoryMonitor.Client.Common.Adapter;
 using FactoryMonitor.Client.ViewModels;
 using FactoryMonitor.Client.Views;
 using Microsoft.Extensions.DependencyInjection;
+using Serilog;
 using SimpleNavigation.Interface;
 using SimpleNavigation.Services;
 using System.Windows;
@@ -20,20 +24,33 @@ namespace FactoryMonitor.Client
         {
             base.OnStartup(e);
 
-            Provider = InitializeContainer();
+            InitialLogger();
 
+            Provider = InitializeContainer()!;
             InitializeNavigation();
 
             MainWindow = Current.Provider.GetRequiredService<MainWindow>();
             MainWindow.Show();
         }
 
+        private void InitialLogger()
+        {
+            Log.Logger = new LoggerConfiguration()
+                .Destructure.ByTransforming<byte[]>(b => b.ToHex())
+                .Enrich.WithThreadId()
+                .MinimumLevel.Debug()
+                .WriteTo.File("logs/log.txt", rollingInterval: RollingInterval.Day,
+                    outputTemplate:
+                    "[{Timestamp:HH:mm:ss.fff}] [{ThreadId}] [{Level:u3}] {Message} {NewLine}{Exception}")
+                .CreateLogger();
+        }
+
         private void InitializeNavigation()
         {
             var navigationService = Provider.GetRequiredService<INavigationService>();
 
-            navigationService.RegisterRoute<HomeView>("HomeView", Provider.GetRequiredService<HomeView>);
-            navigationService.RegisterRoute<HomePage>("HomePage", Provider.GetRequiredService<HomePage>);
+            navigationService.RegisterRoute<HomeView>("HomeView", Provider.GetRequiredService<HomeView>, new SimpleNavigation.Common.NavigationOptions() { AllowMulti = SimpleNavigation.Common.NavigationOptions.PageMode.Singleton });
+            navigationService.RegisterRoute<HomePage>(typeof(HomePage).FullName!, Provider.GetRequiredService<HomePage>);
 
         }
 
@@ -41,7 +58,9 @@ namespace FactoryMonitor.Client
         {
             var container = new ServiceCollection();
 
+            container.AddSingleton<ISerilog, SerilogAdapter>();
             container.AddSingleton<INavigationService, NavigationService>();
+
             container.AddSingleton<MainWindow>();
             container.AddSingleton<MainWindowViewModel>();
             container.AddSingleton<HomeView>();
@@ -52,6 +71,7 @@ namespace FactoryMonitor.Client
 
             container.AddSingleton<ModBusRTUMaster>();
             container.AddTransient<ModBusRTUConfig>();
+
 
             return container.BuildServiceProvider();
         }

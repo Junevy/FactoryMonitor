@@ -7,6 +7,10 @@
     <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="10.0.0" />
     <PackageVersion Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.135" />
     <PackageVersion Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageVersion  Include="System.IO.Ports" Version="10.0.5" />
+    <PackageVersion Include="Serilog" Version="4.3.2-dev-02419" />
+    <PackageVersion Include="Serilog.Enrichers.Thread" Version="4.0.0" />
+    <PackageVersion Include="Serilog.Sinks.Console" Version="6.1.1" />
+    <PackageVersion Include="Serilog.Sinks.File" Version="8.0.0-nblumhardt-02322" />
+    <PackageVersion Include="System.IO.Ports" Version="10.0.5" />
   </ItemGroup>
 </Project>

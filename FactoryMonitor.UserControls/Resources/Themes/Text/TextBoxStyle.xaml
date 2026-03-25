@@ -43,62 +43,225 @@
         </Setter>
     </Style>
 
-    <ControlTemplate x:Key="DefaultTextBoxTemplate" TargetType="{x:Type controls:TextBox}">
-        <Border
-            HorizontalAlignment="Stretch"
-            VerticalAlignment="Stretch"
-            BorderBrush="{DynamicResource BorderForeground}"
-            BorderThickness="1,1,1,0"
-            CornerRadius="5">
+    <!--<ControlTemplate x:Key="DefaultTextBoxTemplate" TargetType="{x:Type controls:TextBox}">
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+
+            <Grid x:Name="title" Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Ellipse
+                    Width="5"
+                    Height="5"
+                    Margin="5"
+                    Fill="Red"
+                    Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:TitleHelper.Required)}" />
+                <ContentControl
+                    Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:TitleHelper.Width)}"
+                    Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:TitleHelper.Height)}"
+                    Margin="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:TitleHelper.Margin)}"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:TitleHelper.Title)}"
+                    FontSize="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:TitleHelper.Size)}"
+                    Foreground="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:TitleHelper.Foreground)}"
+                    Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:TitleHelper.Visibility)}" />
+            </Grid>
+
+
             <Border
-                x:Name="BoxInnerBorder"
+                x:Name="box"
+                Grid.Column="1"
                 HorizontalAlignment="Stretch"
                 VerticalAlignment="Stretch"
-                Background="{DynamicResource PressedBackground}"
-                BorderBrush="{DynamicResource DefaultIndicatorColor}"
-                BorderThickness="0,0,0,3"
+                BorderBrush="{DynamicResource BorderForeground}"
+                BorderThickness="1,1,1,0"
                 CornerRadius="5">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="auto" />
-                    </Grid.ColumnDefinitions>
+                <Border
+                    x:Name="BoxInnerBorder"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Background="{DynamicResource PressedBackground}"
+                    BorderBrush="{DynamicResource DefaultIndicatorColor}"
+                    BorderThickness="0,0,0,3"
+                    CornerRadius="5">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="auto" />
+                        </Grid.ColumnDefinitions>
 
-                    <ContentControl
-                        Grid.Column="0"
-                        Margin="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.Margin)}"
-                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                        VerticalAlignment="Center"
-                        Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.Icon)}"
-                        FontFamily="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.FontFamily)}"
-                        FontSize="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.Size)}"
-                        Foreground="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.Foreground)}" />
+                        <ContentControl
+                            Grid.Column="0"
+                            Margin="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.Margin)}"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="Center"
+                            Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.Icon)}"
+                            FontFamily="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.FontFamily)}"
+                            FontSize="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.Size)}"
+                            Foreground="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.Foreground)}" />
 
-                    <ScrollViewer
-                        x:Name="PART_ContentHost"
-                        Grid.Column="1"
-                        Margin="5"
-                        VerticalAlignment="Center" />
+                        <ScrollViewer
+                            x:Name="PART_ContentHost"
+                            Grid.Column="1"
+                            Margin="5"
+                            VerticalAlignment="Center" />
 
-                    <button:Button
-                        Grid.Column="2"
-                        Margin="5"
-                        VerticalAlignment="Stretch"
-                        Content="&#xe639;"
-                        FontFamily="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.FontFamily)}"
-                        FontSize="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.Size)}"
-                        Foreground="{TemplateBinding Foreground}"
-                        Template="{DynamicResource TransparentButton}"
-                        Visibility="{Binding RelativeSource={RelativeSource AncestorType=controls:TextBox}, Path=CloseButton}" />
-                </Grid>
+                        <button:Button
+                            Grid.Column="2"
+                            Margin="5"
+                            VerticalAlignment="Stretch"
+                            Content="&#xe639;"
+                            FontFamily="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.FontFamily)}"
+                            FontSize="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.Size)}"
+                            Foreground="{TemplateBinding Foreground}"
+                            Template="{DynamicResource TransparentButton}"
+                            Visibility="{Binding RelativeSource={RelativeSource AncestorType=controls:TextBox}, Path=CloseButton}" />
+                    </Grid>
+                </Border>
             </Border>
-        </Border>
+        </Grid>
 
         <ControlTemplate.Triggers>
             <Trigger Property="IsKeyboardFocusWithin" Value="True">
                 <Setter TargetName="BoxInnerBorder" Property="Background" Value="White" />
                 <Setter TargetName="BoxInnerBorder" Property="BorderBrush" Value="{DynamicResource AppThemeColor}" />
+            </Trigger>
+
+            <Trigger Property="{}" Value="Vertical">
+                <Setter TargetName="title" Property="Grid.Row" Value="0" />
+                <Setter TargetName="box" Property="Grid.Row" Value="1" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    -->
+    <!--</ControlTemplate>-->
+
+    <ControlTemplate x:Key="DefaultTextBoxTemplate" TargetType="{x:Type controls:TextBox}">
+        <Border HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+            <!--  【修改点1】将 StackPanel 替换为 DockPanel，LastChildFill="True" 确保最后一个元素填满剩余空间  -->
+            <DockPanel LastChildFill="True">
+
+                <!--  标题部分：增加 x:Name 以便 Trigger 控制它  -->
+                <StackPanel
+                    x:Name="TitleContainer"
+                    MinWidth="50"
+                    Margin="0,0,5,0"
+                    VerticalAlignment="Center"
+                    DockPanel.Dock="Top"
+                    Orientation="Horizontal">
+
+                    <Ellipse
+                        Width="5"
+                        Height="5"
+                        Margin="5"
+                        Fill="Red"
+                        Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:TitleHelper.Required)}" />
+
+                    <ContentControl
+                        Width="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:TitleHelper.Width)}"
+                        Height="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:TitleHelper.Height)}"
+                        Margin="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:TitleHelper.Margin)}"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Center"
+                        Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:TitleHelper.Title)}"
+                        FontSize="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:TitleHelper.Size)}"
+                        Foreground="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:TitleHelper.Foreground)}"
+                        Visibility="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:TitleHelper.Visibility)}" />
+                </StackPanel>
+
+                <!--  输入框主体部分：作为 DockPanel 的最后一个子元素，它会自动撑满所有剩余的 Width 和 Height  -->
+                <Border
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    BorderBrush="{DynamicResource BorderForeground}"
+                    BorderThickness="1,1,1,0"
+                    CornerRadius="5">
+                    <Border
+                        x:Name="BoxInnerBorder"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        Background="{DynamicResource PressedBackground}"
+                        BorderBrush="{DynamicResource DefaultIndicatorColor}"
+                        BorderThickness="0,0,0,3"
+                        CornerRadius="5">
+
+                        <Grid HorizontalAlignment="Stretch">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <!--  左侧图标  -->
+                            <ContentControl
+                                Grid.Column="0"
+                                Margin="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.Margin)}"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="Center"
+                                Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.Icon)}"
+                                FontFamily="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.FontFamily)}"
+                                FontSize="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.Size)}"
+                                Foreground="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.Foreground)}" />
+
+                            <!--  核心输入区  -->
+                            <ScrollViewer
+                                x:Name="PART_ContentHost"
+                                Grid.Column="1"
+                                Margin="5"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Center" />
+
+                            <!--  右侧清空按钮  -->
+                            <button:Button
+                                Grid.Column="2"
+                                Margin="5"
+                                VerticalAlignment="Stretch"
+                                Content="&#xe639;"
+                                FontFamily="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.FontFamily)}"
+                                FontSize="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(helper:IconHelper.Size)}"
+                                Foreground="{TemplateBinding Foreground}"
+                                Template="{DynamicResource TransparentButton}"
+                                Visibility="{Binding RelativeSource={RelativeSource AncestorType=controls:TextBox}, Path=CloseButton}" />
+                        </Grid>
+                    </Border>
+                </Border>
+            </DockPanel>
+        </Border>
+
+        <ControlTemplate.Triggers>
+            <!--  焦点变色触发器  -->
+            <Trigger Property="IsKeyboardFocusWithin" Value="True">
+                <Setter TargetName="BoxInnerBorder" Property="Background" Value="White" />
+                <Setter TargetName="BoxInnerBorder" Property="BorderBrush" Value="{DynamicResource AppThemeColor}" />
+            </Trigger>
+
+            <!--  【修改点2】利用触发器动态改变标题的位置，替代之前 StackPanel 的 Orientation 绑定  -->
+            <Trigger Property="helper:TitleHelper.DisplayMode" Value="Horizontal">
+                <!--  如果模式是水平，就把标题停靠在左边  -->
+                <Setter TargetName="TitleContainer" Property="DockPanel.Dock" Value="Left" />
+                <!--  可以顺便加一点右侧边距，让标题和输入框不要贴得太紧  -->
+                <!--<Setter TargetName="TitleContainer" Property="Margin" Value="0,0,10,0" />-->
+            </Trigger>
+
+            <Trigger Property="helper:TitleHelper.DisplayMode" Value="Vertical">
+
+                <!--  如果模式是垂直，就把标题停靠在上面  -->
+                <Setter TargetName="TitleContainer" Property="DockPanel.Dock" Value="Top" />
+                <!--<Setter TargetName="TitleContainer" Property="Margin" Value="0,0,0,5" />-->
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>

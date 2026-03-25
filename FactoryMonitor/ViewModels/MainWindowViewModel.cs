@@ -1,6 +1,8 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using Communication.ModBus.Utils;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using FactoryMonitor.UserControls.Controls.Menu;
+using Serilog;
 using SimpleNavigation.Common;
 using SimpleNavigation.Interface;
 using System.Collections.ObjectModel;
@@ -23,6 +25,11 @@ namespace FactoryMonitor.Client.ViewModels
             Items.Add(new MenuItem() { Title = "Settings", Icon = "\ue66b", NavigationKey = "SettingsPage" });
             Items.Add(new MenuItem() { Title = "User", Icon = "\ue7b2", NavigationKey = "UserPage" });
             this.navigationService = navigationService;
+
+            byte[] test = { 0x01, 0x02, 0x0A, 0x01, 0x02, 0x0A, 0x01, 0x02, 0x0A, 0x01, 0x02, 0x0A, 0x01, 0x02, 0x0A, 0x01, 0x02, 0x0A, 0x01, 0x02, 0x0A, 0x01, 0x02, 0x0A };
+            Log.Debug("The data is : {@Data}", test.ToHex());
+            ////DataFormat.("127.0.0.1", test);
+            //DataFormat.Rx(Log.Logger, "127.0.0.1", test);
         }
 
         [RelayCommand]

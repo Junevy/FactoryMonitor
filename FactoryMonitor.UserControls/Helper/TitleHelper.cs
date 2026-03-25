@@ -1,10 +1,38 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace FactoryMonitor.UserControls.Helper
 {
     public static class TitleHelper
     {
+        public static Visibility GetRequired(DependencyObject obj)
+        {
+            return (Visibility)obj.GetValue(RequiredProperty);
+        }
+
+        public static void SetRequired(DependencyObject obj, Visibility value)
+        {
+            obj.SetValue(RequiredProperty, value);
+        }
+        public static readonly DependencyProperty RequiredProperty =
+            DependencyProperty.RegisterAttached("Required", typeof(Visibility), typeof(TitleHelper), new PropertyMetadata(Visibility.Collapsed));
+
+
+
+        public static Orientation GetDisplayMode(DependencyObject obj)
+        {
+            return (Orientation)obj.GetValue(DisplayModeProperty);
+        }
+
+        public static void SetDisplayMode(DependencyObject obj, Orientation value)
+        {
+            obj.SetValue(DisplayModeProperty, value);
+        }
+        public static readonly DependencyProperty DisplayModeProperty =
+            DependencyProperty.RegisterAttached("DisplayMode", typeof(Orientation), typeof(TitleHelper), new PropertyMetadata(Orientation.Horizontal));
+
+
         public static object GetTitle(DependencyObject obj)
         {
             return (object)obj.GetValue(TitleProperty);
@@ -28,7 +56,7 @@ namespace FactoryMonitor.UserControls.Helper
             obj.SetValue(WidthProperty, value);
         }
         public static readonly DependencyProperty WidthProperty =
-            DependencyProperty.RegisterAttached("Width", typeof(int), typeof(TitleHelper), new PropertyMetadata(20));
+            DependencyProperty.RegisterAttached("Width", typeof(int), typeof(TitleHelper), new PropertyMetadata(50));
 
 
         public static int GetHeight(DependencyObject obj)
@@ -56,7 +84,7 @@ namespace FactoryMonitor.UserControls.Helper
             obj.SetValue(SizeProperty, value);
         }
         public static readonly DependencyProperty SizeProperty =
-            DependencyProperty.RegisterAttached("Size", typeof(int), typeof(TitleHelper), new PropertyMetadata(20));
+            DependencyProperty.RegisterAttached("Size", typeof(int), typeof(TitleHelper), new PropertyMetadata(16));
 
 
 
@@ -99,7 +127,7 @@ namespace FactoryMonitor.UserControls.Helper
             obj.SetValue(MarginProperty, value);
         }
         public static readonly DependencyProperty MarginProperty =
-            DependencyProperty.RegisterAttached("Margin", typeof(Thickness), typeof(TitleHelper), new PropertyMetadata(new Thickness(5)));
+            DependencyProperty.RegisterAttached("Margin", typeof(Thickness), typeof(TitleHelper), new PropertyMetadata(new Thickness(0)));
 
 
 

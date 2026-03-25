@@ -10,4 +10,8 @@
     <Folder Include="Converter\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Serilog" />
+  </ItemGroup>
+
 </Project>

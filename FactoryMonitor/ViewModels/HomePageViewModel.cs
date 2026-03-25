@@ -1,6 +1,7 @@
 ﻿using Communication.ModBus.ModBusRTU;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using FactoryMonitor.Client.Temp;
 using System.Collections.ObjectModel;
 using System.IO.Ports;
 
@@ -9,21 +10,22 @@ namespace FactoryMonitor.Client.ViewModels
     public partial class HomePageViewModel : ObservableObject
     {
         private readonly ModBusRTUMaster rtu;
+        [ObservableProperty]
+        private MbCommand cmd;
 
         [ObservableProperty]
         private ModBusRTUConfig config;
-        public ObservableCollection<string> Serials { get; private set; } = new();
+        public ObservableCollection<string> Serials { get; private set; } = [];
 
         public HomePageViewModel(ModBusRTUMaster rtu)
         {
             this.rtu = rtu;
             this.config = rtu.Config;
+            this.cmd = new();
 
-            Config.BaudRate = 9600;
+            var portName = SerialPort.GetPortNames();
 
-            var test = SerialPort.GetPortNames();
-
-            foreach (var name in test)
+            foreach (var name in portName)
             {
                 Serials.Add(name);
             }
@@ -33,8 +35,22 @@ namespace FactoryMonitor.Client.ViewModels
         public void Connect()
         {
             rtu.Connect();
-            Console.WriteLine(Config);
+        }
+
+        [RelayCommand]
+        public void Disconnect()
+        {
             rtu.Disconnect();
+        }
+
+        [RelayCommand]
+        public async Task ReadCoilsAsync()
+        {
+            Console.Write(Cmd);
+            var result = await rtu.ReadCoilsAsync((byte)Cmd.SlaveId, Cmd.FunctionCode, Cmd.Count);
+            await Task.Delay(2000);
+
+            //Console.WriteLine(result);
         }
     }
 }

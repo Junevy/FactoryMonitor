@@ -2,11 +2,12 @@
 using CommunityToolkit.Mvvm.Input;
 using FactoryMonitor.Client.Views;
 using FactoryMonitor.UserControls.Controls.Menu;
-using SimpleNavigation;
 using SimpleNavigation.Common;
 using SimpleNavigation.Interface;
 using System.Collections.ObjectModel;
 using System.Windows;
+using System.Windows.Controls;
+using MenuItem = FactoryMonitor.UserControls.Controls.Menu.MenuItem;
 
 namespace FactoryMonitor.Client.ViewModels
 {
@@ -19,7 +20,7 @@ namespace FactoryMonitor.Client.ViewModels
 
         public HomeViewModel(INavigationService navigationService)
         {
-            Items.Add(new MenuItem() { Title = "Home", Icon = "\ue65d", NavigationKey = "HomePage", IsSelected = true });
+            Items.Add(new MenuItem() { Title = "Home", Icon = "\ue65d", NavigationKey = typeof(HomePage).FullName!, IsSelected = true });
             Items.Add(new MenuItem() { Title = "Trend", Icon = "\ue87b", NavigationKey = "TrendPage" });
             Items.Add(new MenuItem() { Title = "Settings", Icon = "\ue66b", NavigationKey = "SettingsPage" });
             Items.Add(new MenuItem() { Title = "User", Icon = "\ue7b2", NavigationKey = "UserPage" });
@@ -41,36 +42,23 @@ namespace FactoryMonitor.Client.ViewModels
         [RelayCommand]
         private void Navigate(MenuItem item)
         {
-            //var region = navigationService.regis
-            ////navigationService.ge
-            //var region = navigationService.GetRegion("HomeViewRegion");
-
-            //var control = region.Content as HomePage;
-
-            //control.DataContext
             var key = item.NavigationKey;
-
-            //if (control?.NavigationKey == key) return;
+            var oldPage = navigationService.GetRegion("HomeViewRegion").Content;
+            var keyType = Type.GetType(key);
 
             if (key == null) return;
 
-            //if (item.IsSelected) return;
+            //MessageBox.Show(t);
 
-            switch (key)
-            {
-                case "HomePage":
-                    navigationService.Navigate("HomeViewRegion", "HomePage");
-                    break;
-                default:
-                    break;
-            }
+            if (oldPage?.GetType() != keyType)
+                navigationService.Navigate("HomeViewRegion", item.NavigationKey);
         }
 
         public void OnNavigating(NavigationParameter? parameters)
         {
             // 处理导航参数
             // 例如：int id = parameters.Get<int>("id");
-            var test = parameters.Get<int>("1");
+            var test = parameters?.Get<int>("1");
             MessageBox.Show(test + "");
         }
 
